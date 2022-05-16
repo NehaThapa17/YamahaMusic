@@ -1,0 +1,213 @@
+<mvc:View controllerName="yamahamusic.so.createso.project.controller.CreateView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.uxap"
+    xmlns:chart="sap.suite.ui.microchart"
+    xmlns:layout="sap.ui.layout"
+    xmlns:forms="sap.ui.layout.form"
+    xmlns:m="sap.m" height="100%">
+    <m:Shell >
+        <m:App >
+            <m:pages>
+                <m:Page id="page" showHeader="true" showNavButton="true" navButtonPress="onNavBack">
+                    <!-- title="{i18n>title}" -->
+                    <m:content>
+                        <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
+                            <headerTitle>
+
+                                <!-- <ObjectPageHeader id="headerForTest" showPlaceholder="true" objectImageShape="Circle" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
+                                    <actions>
+                                        <m:Button text="Set Billing Block" tooltip="edit"/>
+                                        <m:Button text="Set Delivery Block" />
+                                        <m:Button text="Update Prices" />
+                                        <m:MenuButton text="Related Apps">
+                                            <m:menu>
+                                                <m:Menu itemSelected="onMenuAction">
+                                                    <m:MenuItem text="Edit" icon="sap-icon://edit" />
+                                                    <m:MenuItem text="Save" icon="sap-icon://save" />
+                                                    <m:MenuItem text="Open" icon="sap-icon://open-folder" />
+                                                </m:Menu>
+                                            </m:menu>
+                                        </m:MenuButton>
+                                        <m:Button text="Take Action" icon="sap-icon://action" tooltip="action"/>
+                                    </actions>
+                                </ObjectPageHeader> -->
+                                <ObjectPageDynamicHeaderTitle>
+
+                                    <expandedHeading>
+                                        <m:HBox>
+                                            <m:Title text="New Sales Order" wrapping="true"/>
+                                            <!-- <m:ObjectMarker type="Favorite" class="sapUiTinyMarginBegin"/> -->
+                                        </m:HBox>
+                                    </expandedHeading>
+
+                                    <snappedHeading>
+                                        <m:FlexBox fitContainer="true" alignItems="Center">
+                                            <!-- <m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiTinyMarginEnd"/> -->
+                                            <m:Title text="New Sales Order" wrapping="true"/>
+                                        </m:FlexBox>
+                                    </snappedHeading>
+
+                                    <expandedContent>
+                                        <m:Text text="Standard Order"/>
+                                    </expandedContent>
+
+                                    <snappedContent>
+                                        <m:Text text="Standard Order"/>
+                                    </snappedContent>
+
+                                    <snappedTitleOnMobile>
+                                        <m:Title text="Standard Order"/>
+                                    </snappedTitleOnMobile>
+
+                                    <actions>
+                                        <m:MenuButton text="Related Apps">
+                                            <m:menu>
+                                                <m:Menu itemSelected="onMenuAction">
+                                                    <m:MenuItem text="Edit" icon="sap-icon://edit" />
+                                                    <m:MenuItem text="Save" icon="sap-icon://save" />
+                                                    <m:MenuItem text="Open" icon="sap-icon://open-folder" />
+                                                </m:Menu>
+                                            </m:menu>
+                                        </m:MenuButton>
+                                        <m:Button icon="sap-icon://action" tooltip="action"/>
+                                    </actions>
+                                </ObjectPageDynamicHeaderTitle>
+                            </headerTitle>
+
+                            <headerContent>
+                                <m:FlexBox wrap="Wrap">
+                                    <!-- <m:Avatar class="sapUiSmallMarginEnd" src="./test-resources/sap/uxap/images/imageID_275314.png" displaySize="L" /> -->
+
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <!-- <m:Link text="+33 6 4512 5158"/> -->
+                                        <m:Title text="Sales Area"></m:Title>
+                                        <m:Label text="Sales Organization:" design="Bold"></m:Label>
+                                        <m:Text text="Dom Sales Org DE(1010)"></m:Text>
+
+                                        <m:Label text="Distribution Chanel:" design="Bold"></m:Label>
+                                        <m:Text text="Direct Sales(10)"></m:Text>
+
+                                        <m:Label text="Division:" design="Bold"></m:Label>
+                                        <m:Text text="Product division 00 (00)"></m:Text>
+
+                                    </layout:VerticalLayout>
+
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <m:Title text=""></m:Title>
+                                        <m:Label text="Overall Status" design="Bold"/>
+                                        <m:Text text="Open"></m:Text>
+                                        <m:VBox>
+                                            <m:Label text="Overall Blocking Status" design="Bold"/>
+                                            <m:Text text="Not Blocked"></m:Text>
+                                            <m:Label text="Credit Limit Utilization" design="Bold"/>
+                                            
+                                            <chart:BulletMicroChart size="S" scale="K" targetValue="82" press="press">
+                                                <chart:actual>
+                                                    <chart:BulletMicroChartData value="57.5" color="Good"/>
+                                                </chart:actual>
+                                                <chart:thresholds>
+                                                    <chart:BulletMicroChartData value="0" color="Error"/>
+                                                    <chart:BulletMicroChartData value="41" color="Critical"/>
+                                                </chart:thresholds>
+                                            </chart:BulletMicroChart>
+                                        </m:VBox>
+                                    </layout:VerticalLayout>
+
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <!-- <m:Label text="San Jose, USA"/> -->
+                                    </layout:VerticalLayout>
+                                </m:FlexBox>
+                            </headerContent>
+
+                            <sections>
+                                <ObjectPageSection titleUppercase="false" title="General Information">
+                                    <subSections>
+                                        <ObjectPageSubSection title="General Information" titleUppercase="false">
+                                            <blocks>
+                                                <forms:SimpleForm title="Location" editable="false" layout="ColumnLayout">
+                                                    <m:Label text="Country"/>
+                                                    <m:Text text="France"/>
+
+                                                    <m:Label text="Subsidiary"/>
+                                                    <m:Text text="SAP France"/>
+                                                </forms:SimpleForm>
+                                            </blocks>
+                                            <!-- <actions>
+                                                <m:Button icon="sap-icon://delete"/>
+                                             
+                                            </actions> -->
+                                        </ObjectPageSubSection>
+                                    </subSections>
+                                </ObjectPageSection>
+                                <ObjectPageSection titleUppercase="false" showTitle="false">
+                                    <subSections>
+                                        <ObjectPageSubSection title="Items" titleUppercase="false">
+                                            <m:Table headerText="Sales Order Items" mode="MultiSelect">
+                                                <m:headerToolbar>
+                                                    <m:OverflowToolbar>
+                                                        <m:content>
+                                                            <m:Title text="Sales Order Items" level="H2"/>
+                                                            <m:ToolbarSpacer />
+                                                            <m:Button icon="sap-icon://delete"/>
+                                                        </m:content>
+                                                    </m:OverflowToolbar>
+                                                </m:headerToolbar>
+                                                <m:columns>
+                                                <m:Column mergeDuplicates="true">
+                                                        <m:header>
+                                                            <m:Text text="Item" />
+                                                        </m:header>
+                                                    </m:Column>
+                                                    <m:Column mergeDuplicates="true">
+                                                        <m:header>
+                                                            <m:Text text="High-Level Item" />
+                                                        </m:header>
+                                                    </m:Column>
+                                                    <m:Column mergeDuplicates="true">
+                                                        <m:header>
+                                                            <m:Text text="Product" />
+                                                        </m:header>
+                                                    </m:Column>
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                                                        <m:header>
+                                                            <m:Text text="Requested Qty" />
+                                                        </m:header>
+                                                    </m:Column>
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                                                        <m:header>
+                                                            <m:Text text="Confirmed Qty" />
+                                                        </m:header>
+                                                    </m:Column>
+                                                    <m:Column hAlign="End">
+                                                        <m:header>
+                                                            <m:Text text="Customer Material" />
+                                                        </m:header>
+                                                    </m:Column>
+                                                </m:columns>
+                                                <m:ColumnListItem>
+                                                    <m:Text text="10" />
+                                                    <m:Text text="0" />
+                                                    <m:ObjectIdentifier title="Name" text="ProductId" />
+                                                    <m:Text text="width" />
+                                                    <m:ObjectNumber number="32" unit="KG" />
+                                                    <m:ObjectNumber number="830" unit="EUR" />
+                                                </m:ColumnListItem>
+                                            </m:Table>
+                                        </ObjectPageSubSection>
+                                    </subSections>
+                                </ObjectPageSection>
+                            </sections>
+                            <footer>
+                                <m:OverflowToolbar>
+                                    <m:ToolbarSpacer />
+                                    <m:Button type="Accept" text="Accept"/>
+                                    <m:Button type="Reject" text="Reject"/>
+                                </m:OverflowToolbar>
+                            </footer>
+                        </ObjectPageLayout>
+                    </m:content>
+                </m:Page>
+            </m:pages>
+        </m:App>
+    </m:Shell>
+</mvc:View>

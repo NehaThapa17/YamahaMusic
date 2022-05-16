@@ -1,0 +1,138 @@
+<mvc:View controllerName="yamahamusic.so.createso.project.controller.SalesOrdDetailView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.uxap"
+    xmlns:chart="sap.suite.ui.microchart"
+    xmlns:layout="sap.ui.layout"
+    xmlns:forms="sap.ui.layout.form"
+    xmlns:m="sap.m" height="100%">
+    <m:Shell >
+        <m:App >
+            <m:pages>
+                <m:Page showHeader="true" showNavButton="true" title="{i18n>title}" navButtonPress="onNavBack">
+                    <m:content>
+                        <ObjectPageLayout id="DetailLayout" showTitleInHeaderContent="false">
+                            <headerContent>
+                                <m:FlexBox wrap="Wrap">
+                                    <!-- <m:Avatar class="sapUiSmallMarginEnd" src="./test-resources/sap/uxap/images/imageID_275314.png" displaySize="L" /> -->
+
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <!-- <m:Link text="+33 6 4512 5158"/> -->
+                                        <!-- <m:Title text="Sales Area"></m:Title> -->
+                                        <m:Label text="Customer No:" design="Bold"></m:Label>
+                                        <m:Text text="1000510"></m:Text>
+
+                                        <m:Label text="Asset Serial Nummber:" design="Bold"></m:Label>
+                                        <m:Text text="941033"></m:Text>
+
+                                        <m:Label text="Warranty Start Date" design="Bold"></m:Label>
+                                        <m:Text text="01/07/2021"></m:Text>
+
+                                    </layout:VerticalLayout>
+
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <!-- <m:Title text=""></m:Title> -->
+                                        <m:Label text="Customer Name:" design="Bold"/>
+                                        <m:Text text="Machine Supply Industry"></m:Text>
+                                        <m:VBox>
+                                            <m:Label text="Asset Name" design="Bold"/>
+                                            <m:Text text="Tankless Water Heater_FPTU-50 1**"></m:Text>
+                                            <m:Label text="Warranty Date" design="Bold"/>
+                                            <m:Text text="01/07/2024"></m:Text>
+                                        </m:VBox>
+                                    </layout:VerticalLayout>
+
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <!-- <m:Label text="San Jose, USA"/> -->
+                                    </layout:VerticalLayout>
+                                </m:FlexBox>
+                            </headerContent>
+
+                            <sections>
+                                <ObjectPageSection titleUppercase="false" title="Spare Parts">
+                                    <subSections>
+                                        <ObjectPageSubSection title="Spare Parts" titleUppercase="false">
+                                            <blocks>
+                                                <m:Table headerText="" mode="MultiSelect">
+                                                    <m:headerToolbar>
+                                                        <m:OverflowToolbar>
+                                                            <m:content>
+                                                                <m:Title text="Spare Parts" level="H2"/>
+                                                                <m:ToolbarSpacer />
+                                                                <m:Button text="Create Sales Order" type="Transparent" press="onPressCreateSO"/>
+                                                            </m:content>
+                                                        </m:OverflowToolbar>
+                                                    </m:headerToolbar>
+                                                    <m:columns>
+                                                        <m:Column mergeDuplicates="true">
+                                                            <m:header>
+                                                                <m:Text text="Item" />
+                                                            </m:header>
+                                                        </m:Column>
+                                                        <m:Column mergeDuplicates="true">
+                                                            <m:header>
+                                                                <m:Text text="High-Level Item" />
+                                                            </m:header>
+                                                        </m:Column>
+                                                        <m:Column mergeDuplicates="true">
+                                                            <m:header>
+                                                                <m:Text text="Product" />
+                                                            </m:header>
+                                                        </m:Column>
+                                                        <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                                                            <m:header>
+                                                                <m:Text text="Requested Qty" />
+                                                            </m:header>
+                                                        </m:Column>
+                                                        <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                                                            <m:header>
+                                                                <m:Text text="Confirmed Qty" />
+                                                            </m:header>
+                                                        </m:Column>
+                                                        <m:Column hAlign="End">
+                                                            <m:header>
+                                                                <m:Text text="Customer Material" />
+                                                            </m:header>
+                                                        </m:Column>
+                                                    </m:columns>
+                                                    <m:ColumnListItem>
+                                                        <m:Text text="10" />
+                                                        <m:Text text="0" />
+                                                        <m:ObjectIdentifier title="Name" text="ProductId" />
+                                                        <m:Text text="width" />
+                                                        <m:ObjectNumber number="32" unit="KG" />
+                                                        <m:ObjectNumber number="830" unit="EUR" />
+                                                    </m:ColumnListItem>
+                                                </m:Table>
+                                            </blocks>
+                                           
+                                        </ObjectPageSubSection>
+                                    </subSections>
+                                </ObjectPageSection>
+                                <ObjectPageSection titleUppercase="false" showTitle="false">
+                                    <subSections>
+                                        <ObjectPageSubSection title="Service Order" titleUppercase="false">
+                                            <forms:SimpleForm title="Location" editable="false" layout="ColumnLayout">
+                                                    <m:Label text="Country"/>
+                                                    <m:Text text="France"/>
+
+                                                    <m:Label text="Subsidiary"/>
+                                                    <m:Text text="SAP France"/>
+                                                </forms:SimpleForm>
+                                        </ObjectPageSubSection>
+                                    </subSections>
+                                </ObjectPageSection>
+                            </sections>
+                            <footer>
+                                <m:OverflowToolbar>
+                                    <m:ToolbarSpacer />
+                                    <m:Button type="Accept" text="Accept"/>
+                                    <m:Button type="Reject" text="Reject"/>
+                                </m:OverflowToolbar>
+                            </footer>
+                        </ObjectPageLayout>
+                    </m:content>
+                </m:Page>
+            </m:pages>
+        </m:App>
+    </m:Shell>
+</mvc:View>

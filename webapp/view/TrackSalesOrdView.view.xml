@@ -1,0 +1,142 @@
+<mvc:View controllerName="yamahamusic.so.createso.project.controller.TrackSalesOrdView" height="100%"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:vm="sap.ui.comp.variants">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page  showHeader="false">
+                    <!-- title="{i18n>title}" -->
+                    <content>
+                        <f:DynamicPage id="dynamicPageId" headerExpanded="true">
+                            <!-- DynamicPage Title -->
+                            <f:title>
+                                <f:DynamicPageTitle>
+                                    <f:heading>
+                                        <vm:VariantManagement standardItemText="Track Sales Order">
+                                        </vm:VariantManagement>
+                                    </f:heading>
+                                    <f:actions>
+                                        <ToolbarSpacer/>
+                                        <Button text="Create Sales Order" type="Transparent" press="onPressCreateSO"/>
+                                        <Button icon="sap-icon://action" type="Transparent"/>
+                                    </f:actions>
+                                </f:DynamicPageTitle>
+                            </f:title>
+                            <!-- DynamicPage Header -->
+                            <f:header>
+                                <f:DynamicPageHeader pinnable="true">
+                                    <f:content>
+                                        <fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true">
+                                            <fb:filterGroupItems>
+                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Document No" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                                    <fb:control>
+                                                        <MultiComboBox selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish" showSelectAll="true" width="350px">
+                                                            <core:Item key="001123" text="001123"/>
+                                                            <core:Item key="001124" text="001124"/>
+                                                            <core:Item key="001125" text="001125"/>
+                                                        </MultiComboBox>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
+                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="Order Type" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                                    <fb:control>
+                                                        <Input type="Text" change="onChange"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
+
+
+                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Sold-To-Party" mandatory="true" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                                    <fb:control>
+                                                        <ComboBox change="onChange">
+                                                            <items>
+                                                                <core:Item key="001" text="EMEA"/>
+                                                                <core:Item key="002" text="America"/>
+                                                                <core:Item key="003" text="APJ"/>
+                                                            </items>
+                                                        </ComboBox>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
+                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="Document Date" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                                    <fb:control>
+                                                        <DatePicker change="onChange"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
+                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="E" label="Requested Delivery Date" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                                    <fb:control>
+                                                        <DatePicker change="onChange"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
+                                                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="A1" label="Customer Ref" labelTooltip="Tooltip GroupItem Example">
+                                                    <fb:control>
+                                                        <Input type="Text" change="onChange"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
+
+                                                <!-- <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="B1" label="Customer">
+                                                    <fb:control>
+                                                        <Input type="Text" change="onChange"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
+
+                                                <fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="A2" label="Supplier" labelTooltip="Tooltip GroupItem Example">
+                                                    <fb:control>
+                                                        <Input type="Text" change="onChange"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem> -->
+
+                                                <fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="B2" label="Category">
+                                                    <fb:control>
+                                                        <Input type="Text" change="onChange"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
+                                            </fb:filterGroupItems>
+                                        </fb:FilterBar>
+                                    </f:content>
+                                </f:DynamicPageHeader>
+                            </f:header>
+
+                            <!-- DynamicPage Content -->
+                            <f:content>
+                                <Table id="idProductsTable" inset="false">
+
+                                    <columns>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Sales Document"/>
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Overall fulfilment"/>
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Process Phase"/>
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Req Delivery Date"/>
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Net Value"/>
+                                        </Column>
+                                    </columns>
+
+                                    <items>
+                                        <ColumnListItem vAlign="Middle">
+                                            <cells>
+                                                <ObjectIdentifier title="1200234" text="Sales Document" titleActive="true" titlePress="onTitleClicked"/>
+                                                <Text text="In Order"/>
+                                                <Text text="02/18/2017"/>
+                                                <Text text="52.66 AUD"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </f:content>
+                        </f:DynamicPage>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
