@@ -125,21 +125,18 @@
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "CreateView",
           "viewName": "CreateView"
         },
         "TargetTrackView": {
             "viewType": "XML",
             "transition": "slide",
             "clearControlAggregation": false,
-            "viewId": "TrackSalesOrdView",
             "viewName": "TrackSalesOrdView"
           },
           "TargetDetailView": {
             "viewType": "XML",
             "transition": "slide",
             "clearControlAggregation": false,
-            "viewId": "SalesOrdDetailView",
             "viewName": "SalesOrdDetailView"
           }
       }

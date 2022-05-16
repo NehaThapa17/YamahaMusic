@@ -15,17 +15,17 @@ sap.ui.define([
 				// this.getView().setModel(oModel);
             },
             onNavBack:function(){
-                // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                // var oHistory, sPreviousHash;
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                var oHistory, sPreviousHash;
     
-                // oHistory = History.getInstance();
-                // sPreviousHash = oHistory.getPreviousHash();
+                oHistory = History.getInstance();
+                sPreviousHash = oHistory.getPreviousHash();
     
-                // if (sPreviousHash !== undefined) {
-                //     window.history.go(-1);
-                // } else {
-                //     oRouter.navTo("RouteTrackView");
-                // }
+                if (sPreviousHash !== undefined) {
+                    window.history.go(-1);
+                } else {
+                    oRouter.navTo("RouteTrackView");
+                }
             
 
             }

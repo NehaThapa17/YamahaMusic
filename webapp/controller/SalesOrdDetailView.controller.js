@@ -15,6 +15,21 @@ sap.ui.define([
             onPressCreateSO: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("RouteCreateView");
+            },
+            onNavBackDetail:function(){
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                var oHistory, sPreviousHash;
+    
+                oHistory = History.getInstance();
+                sPreviousHash = oHistory.getPreviousHash();
+    
+                if (sPreviousHash !== undefined) {
+                    window.history.go(-1);
+                } else {
+                    oRouter.navTo("RouteTrackView");
+                }
+            
+
             }
             
         });
