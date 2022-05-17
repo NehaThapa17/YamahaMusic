@@ -153,9 +153,9 @@
                                             <blocks>
                                                 <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
                                                     <m:Label text="Customer Reference"/>
-                                                    <m:Input width="60%"/>
+                                                    <m:Input width="50%"/>
                                                     <m:Label text="Customer Reference Date"/>
-                                                    <m:DatePicker change="onChangeCRDate" width="60%"/>
+                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
                                                     <m:Label text="Request Delivery Date"/>
                                                     <m:DatePicker change="onChangeCRDate" width="50%"/>
                                                     <m:Label text="Ship-to-party" />
@@ -170,9 +170,9 @@
                                             <blocks>
                                                 <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
                                                    <m:Label text="Bill-to-party"/>
-                                                    <m:Input value="TBS010002" editable="true" showValueHelp="true" description="Just for Reference"/>
+                                                    <m:Input value="TBS010002"  editable="true" showValueHelp="true" description="Just for Reference"/>
                                                     <m:Label text="Payer"/>
-                                                    <m:Input valueHelpOnly="true" showValueHelp="true"/>
+                                                    <m:Input valueHelpOnly="true" width="50%" showValueHelp="true"/>
                                                 </forms:SimpleForm>
                                             </blocks>
                                         </ObjectPageSubSection>
@@ -182,15 +182,15 @@
                                             <blocks>
                                                 <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
                                                     <m:Label text="Payment Terms"/>
-                                                    <m:Input valueHelpOnly="true"  editable="false"/>
+                                                    <m:Input valueHelpOnly="true"  width="50%" editable="false"/>
                                                      <m:Label text="Inco Location"/>
-                                                    <m:Input valueHelpOnly="true" editable="false"/>
+                                                    <m:Input valueHelpOnly="true" width="50%" editable="false"/>
                                                     <m:Label text="Inco Terms"/>
-                                                    <m:Input valueHelpOnly="true"  editable="false"/>
+                                                    <m:Input valueHelpOnly="true"  width="50%" editable="false"/>
                                                     <m:Label text="Total Weight"/>
-                                                    <m:Input valueHelpOnly="true"  editable="false"/>
+                                                    <m:Input valueHelpOnly="true"  width="50%" editable="false"/>
                                                     <m:Label text="Net Value"/>
-                                                    <m:Input valueHelpOnly="true" editable="false"/>
+                                                    <m:Input valueHelpOnly="true" width="50%" editable="false"/>
                                                 </forms:SimpleForm>
                                             </blocks>
                                         </ObjectPageSubSection>
@@ -227,37 +227,46 @@
                                                     </m:OverflowToolbar>
                                                 </m:headerToolbar>
                                                 <m:columns>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" >
+                                                    <m:Column minScreenWidth="Tablet" width="5rem" demandPopin="true" >
                                                         <m:header>
                                                             <m:Text text="Item" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true"  hAlign="Begin">
+                                                    <m:Column minScreenWidth="Tablet" width="15%" demandPopin="true"  hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Material" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" >
-                                                        <m:header>
-                                                            <m:Text text="Order Quantity" />
-                                                        </m:header>
-                                                    </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
-                                                        <m:header>
-                                                            <m:Text text="Requested Delivery Date" />
-                                                        </m:header>
-                                                    </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                                                     <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%" hAlign="End">
                                                         <m:header>
                                                             <m:Text text="Material Description" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%" hAlign="End">
+                                                        <m:header>
+                                                            <m:Text text="Order Quantity" />
+                                                        </m:header>
+                                                        <!-- <m:footer>
+                                                        <m:Input value="EUR" />
+                                                        </m:footer> -->
+                                                    </m:Column>
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" width="10%" hAlign="Begin">
+                                                        <m:header>
+                                                            <m:Text text=""/>
+                                                        </m:header>
+                                                    </m:Column>
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%" hAlign="Center">
+                                                        <m:header>
+                                                            <m:Text text="Requested Delivery Date" />
+                                                        </m:header>
+                                                    </m:Column>
+                                                   
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%"  hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Net Value" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column hAlign="Center">
+                                                    <m:Column hAlign="Center" width="10%">
                                                         <m:header>
                                                             <m:Text text="Plant" />
                                                         </m:header>
@@ -266,10 +275,12 @@
                                                 <m:ColumnListItem>
                                                     <m:Text text="10" />
                                                     <m:Input value="" showValueHelp="true" valueHelpOnly="true" />
-                                                    <m:Input value="" />
+                                                    <m:Text text="Text Description of the material" wrapping="true"/>
+                                                    <m:Input value="" width="90%"/>
+                                                    <m:Input value="" width="20%" showValueHelp="true"/>
                                                     <m:DatePicker change="onSelectDate"></m:DatePicker>
                                                     <m:Text text="" />
-                                                    <m:Text text="" />
+                                                    
                                                     <m:Text text="8091" />
                                                 </m:ColumnListItem>
                                             </m:Table>
