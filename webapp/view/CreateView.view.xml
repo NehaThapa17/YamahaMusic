@@ -77,35 +77,37 @@
                             <headerContent>
                                 <m:FlexBox wrap="Wrap">
 
-                                    <!-- <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
 
-                                        <layout:HorizontalLayout >
-                                            <m:Label text="Sales Area: " design="Bold"></m:Label>
-                                            <m:Text text="" textDirection="LTR"></m:Text>
-                                        </layout:HorizontalLayout>
-                                        <layout:HorizontalLayout >
+                                        <!-- <layout:HorizontalLayout > -->
+                                             <m:Label text="Sales Area" design="Bold" textDirection="LTR"/>
+                                                <m:Text text="" />
+                                        <!-- </layout:HorizontalLayout> -->
+                                        <!-- <layout:HorizontalLayout > -->
                                             <m:Label text="Sales Organization: " design="Bold"></m:Label>
                                             <m:Text text=" 8091" textDirection="RTL"></m:Text>
-                                        </layout:HorizontalLayout>
-                                        <layout:HorizontalLayout >
+                                        <!-- </layout:HorizontalLayout> -->
+                                        <!-- <layout:HorizontalLayout > -->
                                             <m:Label text="Distribution Chanel: " design="Bold"></m:Label>
                                             <m:Text text="Direct Sales(10)"></m:Text>
-                                        </layout:HorizontalLayout >
-                                        <layout:HorizontalLayout >
+                                        <!-- </layout:HorizontalLayout > -->
+                                         </layout:VerticalLayout >
+                                          <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <!-- <layout:HorizontalLayout > -->
                                             <m:Label text="Division: " design="Bold"></m:Label>
                                             <m:Text text="00"></m:Text>
-                                        </layout:HorizontalLayout >
-                                        <layout:HorizontalLayout >
+                                        <!-- </layout:HorizontalLayout > -->
+                                        <!-- <layout:HorizontalLayout > -->
                                             <m:Label text="Sold-To-Party: " design="Bold"></m:Label>
                                             <m:Text text=" "></m:Text>
-                                        </layout:HorizontalLayout >
-                                        <layout:HorizontalLayout >
+                                        <!-- </layout:HorizontalLayout > -->
+                                        <!-- <layout:HorizontalLayout > -->
                                             <m:Label text="Order Type: " design="Bold"></m:Label>
                                             <m:Text text="ZB2B"></m:Text>
-                                        </layout:HorizontalLayout >
+                                        <!-- </layout:HorizontalLayout > -->
 
-                                    </layout:VerticalLayout> -->
-                                    <layout:VerticalLayout class="sapUiSmallMargin">
+                                    </layout:VerticalLayout>
+                                    <!-- <layout:VerticalLayout class="sapUiSmallMargin">
                                         <forms:SimpleForm id="SimpleFormDisplayColumn_oneGroup" editable="false" columnsM="2" columnsL="3" columnsXL="4" layout="ColumnLayout" class="sapUiSizeCompact">
                                             <forms:content>
                                                 <m:Label text="Sales Area" design="Bold" textDirection="LTR"/>
@@ -122,7 +124,7 @@
                                                 <m:Text text="ZB2B"/>
                                             </forms:content>
                                         </forms:SimpleForm>
-                                    </layout:VerticalLayout>
+                                    </layout:VerticalLayout> -->
                                     <!-- <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Title text=""></m:Title>
                                         <m:Label text="Overall Status" design="Bold"/>
@@ -300,7 +302,7 @@
                     <m:footer>
                                 <m:OverflowToolbar>
                                     <m:ToolbarSpacer />
-                                    <m:Button type="Accept" text="Save"/>
+                                    <m:Button type="Accept" text="Save" />
                                     <m:Button type="Reject" text="Cancel"/>
                                 </m:OverflowToolbar>
                             </m:footer>
