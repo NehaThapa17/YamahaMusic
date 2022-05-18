@@ -8,7 +8,7 @@
     <m:Shell >
         <m:App >
             <m:pages>
-                <m:Page showHeader="false" showNavButton="true" title="{i18n>title}" navButtonPress="onNavBackDetail">
+                <m:Page showHeader="true" showNavButton="true" navButtonPress="onNavBackDetail">
                     <m:content>
                         <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="false" showFooter="true">
                             <headerTitle>
