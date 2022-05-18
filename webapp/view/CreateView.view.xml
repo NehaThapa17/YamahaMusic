@@ -303,7 +303,7 @@
                                 <m:OverflowToolbar>
                                     <m:ToolbarSpacer />
                                     <m:Button type="Accept" text="Save" />
-                                    <m:Button type="Reject" text="Cancel"/>
+                                    <m:Button type="Reject" text="Cancel" press="onClickCancel"/>
                                 </m:OverflowToolbar>
                             </m:footer>
                 </m:Page>

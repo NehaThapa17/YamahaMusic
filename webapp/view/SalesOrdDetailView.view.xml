@@ -118,7 +118,7 @@
                                                         <m:content>
                                                             <m:Title text="Sales Order Items" level="H2"/>
                                                             <m:ToolbarSpacer />
-                                                            <m:Button text="Create Sales Order" type="Emphasized"/>
+                                                            <!-- <m:Button text="Create Sales Order" type="Emphasized"/> -->
                                                         </m:content>
                                                     </m:OverflowToolbar>
                                                 </m:headerToolbar>

@@ -59,7 +59,10 @@ sap.ui.define([
                 }
                 oModelItem.refresh();
             },
-
+            onClickCancel: function(){
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("RouteTrackView");
+            },
             onNavBack:function(){
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 var oHistory, sPreviousHash;
