@@ -11,7 +11,7 @@
                 <m:Page id="page" showHeader="true" showNavButton="true" navButtonPress="onNavBack">
                     <!-- title="{i18n>title}" -->
                     <m:content>
-                        <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
+                        <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="false" showFooter="true">
                             <headerTitle>
 
                                 <!-- <ObjectPageHeader id="headerForTest" showPlaceholder="true" objectImageShape="Circle" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
@@ -291,8 +291,8 @@
                             <footer>
                                 <m:OverflowToolbar>
                                     <m:ToolbarSpacer />
-                                    <m:Button type="Accept" text="Accept"/>
-                                    <m:Button type="Reject" text="Reject"/>
+                                    <m:Button type="Accept" text="Save"/>
+                                    <m:Button type="Reject" text="Cancel"/>
                                 </m:OverflowToolbar>
                             </footer>
                         </ObjectPageLayout>
