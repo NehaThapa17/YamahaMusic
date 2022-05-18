@@ -215,14 +215,14 @@
                                 <ObjectPageSection titleUppercase="false" showTitle="false">
                                     <subSections>
                                         <ObjectPageSubSection title="Items" titleUppercase="false">
-                                            <m:Table headerText="Sales Order Items" mode="MultiSelect">
+                                            <m:Table id="idTableItems" headerText="Sales Order Items" mode="MultiSelect" items="{itemModel>/items}">
                                                 <m:headerToolbar>
                                                     <m:OverflowToolbar>
                                                         <m:content>
                                                             <m:Title text="Sales Order Items" level="H2"/>
                                                             <m:ToolbarSpacer />
-                                                            <m:Button icon="sap-icon://add"/>
-                                                            <m:Button icon="sap-icon://delete"/>
+                                                            <m:Button icon="sap-icon://add" press="addItem" />
+                                                            <m:Button icon="sap-icon://delete" press="deleteItem"/>
                                                         </m:content>
                                                     </m:OverflowToolbar>
                                                 </m:headerToolbar>
@@ -273,15 +273,15 @@
                                                     </m:Column>
                                                 </m:columns>
                                                 <m:ColumnListItem>
-                                                    <m:Text text="10" />
-                                                    <m:Input value="" showValueHelp="true" valueHelpOnly="true" />
-                                                    <m:Text text="Text Description of the material" wrapping="true"/>
-                                                    <m:Input value="" width="90%"/>
-                                                    <m:Input value="" width="20%" showValueHelp="true"/>
+                                                    <m:Text text="{itemModel>item}" />
+                                                    <m:Input value="{itemModel>material}" showValueHelp="true" valueHelpOnly="true" />
+                                                    <m:Text text="{itemModel>description}" wrapping="true"/>
+                                                    <m:Input value="{itemModel>quantity}" width="90%"/>
+                                                    <m:Input value="{itemModel>uom}" width="20%" showValueHelp="true"/>
                                                     <m:DatePicker change="onSelectDate"></m:DatePicker>
-                                                    <m:Text text="" />
+                                                    <m:Text text="{itemModel>netValue}" />
                                                     
-                                                    <m:Text text="8091" />
+                                                    <m:Text text="{itemModel>plant}" />
                                                 </m:ColumnListItem>
                                             </m:Table>
                                         </ObjectPageSubSection>
