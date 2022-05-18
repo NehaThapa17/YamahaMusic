@@ -1,19 +1,65 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/core/routing/History",
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (UIComponent,History,Controller) {
+    function (UIComponent,History,Controller,JSONModel) {
         "use strict";
 
         return Controller.extend("yamahamusic.so.createso.project.controller.CreateView", {
             onInit: function () {
                 // var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/products.json"));
 				// this.getView().setModel(oModel);
+                var oModel = new JSONModel();
+                var oItemData = {"items":[]};
+                oModel.setData(oItemData);
+            
+                this.getView().setModel(oModel,"itemModel");
+                this.addItem();
             },
+
+            addItem: function () {
+                var oModelItem = this.getView().getModel("itemModel");
+                var aItems = oModelItem.getProperty("/items");
+                var nIndex = aItems.length;
+                var itemNo = (nIndex * 10) + 10; 
+                
+                var oItem = {
+                    "item": itemNo,
+                    "material": "",
+                    "description": "Material " + nIndex,
+                    "quantity": "",
+                    "uom": "",
+                    "deliveryDate": null,
+                    "netValue": "",
+                    "plant": "8091"
+                };
+                aItems.push(oItem);
+                oModelItem.refresh();
+            },
+
+            deleteItem: function () {
+                var oTable = this.getView().byId("idTableItems");
+                var aTableItems = oTable.getSelectedItems();
+                var oModelItem = this.getView().getModel("itemModel");
+                var aItems = oModelItem.getProperty("/items");
+                for (var i = 0; i < aTableItems.length; i++) {
+                    var sPath = aTableItems[i].getBindingContext("itemModel").getPath();
+                    var sIndex = sPath.split("/")[2];
+                    var deleteIndex = sIndex-i;
+                    aItems.splice(deleteIndex,1);
+                }
+                oTable.removeSelections();
+                for (i=0; i < aItems.length; i++) {
+                    aItems[i].item = (i * 10) + 10;
+                }
+                oModelItem.refresh();
+            },
+
             onNavBack:function(){
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 var oHistory, sPreviousHash;

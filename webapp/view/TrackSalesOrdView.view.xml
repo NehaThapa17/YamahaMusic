@@ -140,7 +140,7 @@
                                     </columns>
 
                                     <items>
-                                        <ColumnListItem vAlign="Middle" type="Navigation">
+                                        <ColumnListItem vAlign="Middle" type="Navigation" press="onTitleClicked">
                                             <cells>
                                                 <ObjectIdentifier title="1200234" text="" titleActive="true" titlePress="onTitleClicked"/>
                                                 <Text text="PO12345-O10"/>
@@ -154,7 +154,7 @@
                                                 <Text text="Open"/>
                                             </cells>
                                         </ColumnListItem>
-                                        <ColumnListItem vAlign="Middle" type="Navigation">
+                                        <ColumnListItem vAlign="Middle" type="Navigation" press="onTitleClicked">
                                             <cells>
                                                 <ObjectIdentifier title="1200235" text="" titleActive="true" titlePress="onTitleClicked"/>
                                                 <Text text="PO12345-O10"/>
@@ -168,7 +168,7 @@
                                                 <Text text="Open"/>
                                             </cells>
                                         </ColumnListItem>
-                                        <ColumnListItem vAlign="Middle" type="Navigation">
+                                        <ColumnListItem vAlign="Middle" type="Navigation" press="onTitleClicked">
                                             <cells>
                                                 <ObjectIdentifier title="1200236" text="" titleActive="true" titlePress="onTitleClicked"/>
                                                 <Text text="PO12345-O10"/>
