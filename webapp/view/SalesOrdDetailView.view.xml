@@ -37,47 +37,57 @@
                                 </ObjectPageDynamicHeaderTitle>
                             </headerTitle>
                             <headerContent>
-                                <m:FlexBox wrap="Wrap">
+                                <m:FlexBox wrap="Wrap" class="sapUiNoMargin">
                                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Sales Area" design="Bold" textDirection="LTR"/>
                                         <m:Text text="" />
+                                    </layout:VerticalLayout >
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Sales Organization: " design="Bold"></m:Label>
                                         <m:Text text=" 8091" textDirection="RTL"></m:Text>
+                                    </layout:VerticalLayout >
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Distribution Chanel: " design="Bold"></m:Label>
                                         <m:Text text="Direct Sales(10)"></m:Text>
                                     </layout:VerticalLayout >
                                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Division: " design="Bold"></m:Label>
                                         <m:Text text="00"></m:Text>
+                                    </layout:VerticalLayout >
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Sold-To-Party: " design="Bold"></m:Label>
                                         <m:Text text=" "></m:Text>
+                                    </layout:VerticalLayout >
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Order Type: " design="Bold"></m:Label>
                                         <m:Text text="ZB2B"></m:Text>
                                     </layout:VerticalLayout>
-
                                 </m:FlexBox>
                             </headerContent>
 
                             <sections>
-                                <ObjectPageSection titleUppercase="false" title="General Information">
+                                <ObjectPageSection titleUppercase="false" title="General Information" showTitle="false">
                                     <subSections>
-                                        <ObjectPageSubSection title="General Information" titleUppercase="false">
+                                        <ObjectPageSubSection titleUppercase="false" class="customMargin">
                                             <blocks>
                                                 <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
                                                     <m:Label text="Customer Reference"/>
-                                                    <m:Input width="50%" editable="false"/>
+                                                    <m:Text text=""/>
+                                                    <!-- <m:Input width="50%" editable="false"/> -->
                                                     <m:Label text="Customer Reference Date"/>
-                                                    <m:DatePicker change="onChangeCRDate" width="50%" editable="false"/>
+                                                    <m:Text text=""/>
+                                                    <!-- <m:DatePicker change="onChangeCRDate" width="50%" editable="false"/> -->
                                                     <m:Label text="Request Delivery Date"/>
-                                                    <m:DatePicker change="onChangeCRDate" width="50%" editable="false"/>
+                                                    <m:Text text=""/>
+                                                    <!-- <m:DatePicker change="onChangeCRDate" width="50%" editable="false"/> -->
                                                     <m:Label text="Ship-to-party" />
-                                                    <m:Input value="TBS010002" editable="false" showValueHelp="true" description="The Brass Music Specialists"/>
-
+                                                    <m:Text text=""/>
+                                                    <!-- <m:Input value="TBS010002" editable="false" showValueHelp="true" description="The Brass Music Specialists"/> -->
                                                 </forms:SimpleForm>
                                             </blocks>
                                         </ObjectPageSubSection>
                                     </subSections>
-                                    <subSections>
+                                    <!-- <subSections>
                                         <ObjectPageSubSection title="Partner" titleUppercase="false">
                                             <blocks>
                                                 <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
@@ -88,8 +98,8 @@
                                                 </forms:SimpleForm>
                                             </blocks>
                                         </ObjectPageSubSection>
-                                    </subSections>
-                                    <subSections>
+                                    </subSections> -->
+                                    <!-- <subSections>
                                         <ObjectPageSubSection title="Sales" titleUppercase="false">
                                             <blocks>
                                                 <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
@@ -106,12 +116,51 @@
                                                 </forms:SimpleForm>
                                             </blocks>
                                         </ObjectPageSubSection>
+                                    </subSections> -->
+                                </ObjectPageSection>
+                                <ObjectPageSection titleUppercase="false" showTitle="false" title="Partner" titleLevel="H2">
+                                    <subSections>
+                                        <ObjectPageSubSection titleUppercase="false" class="customMargin">
+                                            <blocks>
+                                                <forms:SimpleForm editable="true" layout="ColumnLayout" title="Partner" class="sapUiSizeCompact">
+                                                    <m:Label text="Bill-to-party"/>
+                                                    <m:Text text="TBS010002 - Just for Reference"/>
+                                                    <m:Label text="Payer"/>
+                                                    <m:Text text=""></m:Text>
+                                                </forms:SimpleForm>
+                                            </blocks>
+                                        </ObjectPageSubSection>
                                     </subSections>
                                 </ObjectPageSection>
+                                <ObjectPageSection titleUppercase="false" showTitle="false" title="Sales">
+                                    <subSections>
+                                        <ObjectPageSubSection titleUppercase="false" class="customMargin">
+                                            <blocks>
+                                                <forms:SimpleForm columnsM="2" columnsL="3" columnsXL="4"  editable="false" title="Sales" layout="ColumnLayout" class="sapUiSizeCompact">
 
+                                                    <m:Label text="Payment Terms"/>
+                                                    <m:Text text="0001 - Pay immediately w/o deduction"/>
+                                                    <m:Label text="Inco Location"/>
+                                                    <m:Text text="EXW"/>
+
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    <m:Label text="Inco Terms"/>
+                                                    <m:Text text="EXW"/>
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    <m:Label text="Total Weight"/>
+                                                    <m:Text text="31 KG" />
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    <m:Label text="Net Value"/>
+                                                    <m:Text text=""/>
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                </forms:SimpleForm>
+                                            </blocks>
+                                        </ObjectPageSubSection>
+                                    </subSections>
+                                </ObjectPageSection>
                                 <ObjectPageSection titleUppercase="false" showTitle="false">
                                     <subSections>
-                                        <ObjectPageSubSection title="Items" titleUppercase="false">
+                                        <ObjectPageSubSection title="Items" titleUppercase="false" class="customMargin">
                                             <m:Table headerText="Sales Order Items">
                                                 <m:headerToolbar>
                                                     <m:OverflowToolbar>
@@ -123,22 +172,22 @@
                                                     </m:OverflowToolbar>
                                                 </m:headerToolbar>
                                                 <m:columns>
-                                                    <m:Column minScreenWidth="Tablet"  demandPopin="true">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                         <m:header>
                                                             <m:Text text="Item" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet"  demandPopin="true" hAlign="Center">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Material" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true"  hAlign="End">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
                                                         <m:header>
                                                             <m:Text text="Material Description" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true"  hAlign="Center">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Order Quantity" />
                                                         </m:header>
@@ -146,18 +195,18 @@
                                                         <m:Input value="EUR" />
                                                         </m:footer> -->
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true"  hAlign="Center">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Requested Delivery Date" />
                                                         </m:header>
                                                     </m:Column>
 
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true"  hAlign="Center">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Net Value" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column hAlign="Center" >
+                                                    <m:Column hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Plant" />
                                                         </m:header>

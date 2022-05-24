@@ -1,0 +1,55 @@
+<core:FragmentDefinition
+	xmlns:m="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns = "sap.ui.table" >
+	<m:ResponsivePopover
+		id="myPopover"
+		title="Check Availability"
+		class="sapUiContentPadding"
+		placement="Top" >
+		<!-- <beginButton>
+			<Button text="" press="handleCloseButton" />
+		</beginButton> -->
+		<m:endButton>
+			<m:Button text="Cancel" press="handleCloseButton" />
+		</m:endButton>
+		<m:content>
+			<Table
+					id="table"
+				
+                   
+                    selectionMode="None"
+					ariaLabelledBy="title">
+				<rowSettingsTemplate>
+					<RowSettings highlight="Success" highlightText="Available"/>
+				</rowSettingsTemplate>
+				<columns>
+					<Column>
+						<m:Label text="Material"/>
+						<template>
+							<m:Text text="AAC0860" wrapping="false"/>
+						</template>
+					</Column>
+					<Column>
+						<m:Label text="Description"/>
+						<template>
+							<m:Text text="MAT1" wrapping="false"/>
+						</template>
+					</Column>
+					<Column hAlign="End">
+						<m:Label text="Available Quantity"/>
+						<template>
+							<m:ObjectNumber number="500" unit="EA" />
+						</template>
+					</Column>
+					<Column>
+						<m:Label text="Price"/>
+						<template>
+							<m:ObjectNumber number="100" unit="EUR" />
+						</template>
+					</Column>
+				</columns>
+			</Table>
+		</m:content>
+	</m:ResponsivePopover>
+</core:FragmentDefinition>

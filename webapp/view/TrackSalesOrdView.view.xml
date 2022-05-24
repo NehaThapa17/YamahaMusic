@@ -21,9 +21,9 @@
                                         </vm:VariantManagement>
                                     </f:heading>
                                     <f:actions>
-                                        <ToolbarSpacer/>
-                                        <Button text="Create Sales Order" type="Transparent" press="onPressCreateSO"/>
-                                        <Button icon="sap-icon://action" type="Transparent"/>
+                                        <!-- <ToolbarSpacer/>
+                                        
+                                        <Button icon="sap-icon://action" type="Transparent"/> -->
                                     </f:actions>
                                 </f:DynamicPageTitle>
                             </f:title>
@@ -102,7 +102,8 @@
                                 <OverflowToolbar>
                                     <Title text="Sales Orders (3)"/>
                                     <ToolbarSpacer/>
-                                    <Button icon="sap-icon://action-settings"/>
+                                    <Button text="Create Sales Order" type="Emphasized" press="onPressCreateSO"/>
+                                    <!-- <Button icon="sap-icon://action-settings"/> -->
                                 </OverflowToolbar>
                                 </headerToolbar>
 

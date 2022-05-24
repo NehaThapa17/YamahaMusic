@@ -2,12 +2,13 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/core/routing/History",
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    'sap/ui/core/Fragment'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (UIComponent,History,Controller,JSONModel) {
+    function (UIComponent,History,Controller,JSONModel,Fragment) {
         "use strict";
 
         return Controller.extend("yamahamusic.so.createso.project.controller.CreateView", {
@@ -33,7 +34,7 @@ sap.ui.define([
                     "material": "",
                     "description": "Material " + nIndex,
                     "quantity": "",
-                    "uom": "",
+                    "uom": "EA",
                     "deliveryDate": null,
                     "netValue": "",
                     "plant": "8091"
@@ -77,6 +78,36 @@ sap.ui.define([
                 }
             
 
+            },
+            handleCloseButton: function (oEvent) {
+                // note: We don't need to chain to the _pPopover promise, since this event-handler
+                // is only called from within the loaded dialog itself.
+                this.byId("myPopover").close();
+            },
+            handleResponsivePopoverPress: function (oEvent) {
+                var oButton = oEvent.getSource(),
+                    oView = this.getView();
+    
+                if (!this._pPopover) {
+                    this._pPopover = Fragment.load({
+                        id: oView.getId(),
+                        name: "yamahamusic.so.createso.project.fragments.CheckAvailF4",
+                        controller: this
+                    }).then(function(oPopover) {
+                        oView.addDependent(oPopover);
+                        // oPopover.bindElement("/ProductCollection/0");
+                        return oPopover;
+                    });
+                }
+                this._pPopover.then(function(oPopover) {
+                    oPopover.openBy(oButton);
+                });
+            },
+            onSelectionModeChange: function(oEvent) {
+                var oTable = this.byId("table");
+                var sKey = oEvent.getParameter("selectedItem").getKey();
+    
+                oTable.setSelectionMode(sKey);
             }
         });
     });

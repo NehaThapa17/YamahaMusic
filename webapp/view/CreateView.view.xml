@@ -74,36 +74,43 @@
                                 </ObjectPageDynamicHeaderTitle>
                             </headerTitle>
 
-                            <headerContent>
-                                <m:FlexBox wrap="Wrap">
+                            <headerContent >
+                                <m:FlexBox wrap="Wrap" class="sapUiNoMargin">
 
                                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-
                                         <!-- <layout:HorizontalLayout > -->
-                                             <m:Label text="Sales Area" design="Bold" textDirection="LTR"/>
-                                                <m:Text text="" />
+                                        <m:Label text="Sales Area" design="Bold" textDirection="LTR"/>
+                                        <m:Text text="" />
+                                    </layout:VerticalLayout >
+                                    <!-- </layout:HorizontalLayout> -->
+                                    <!-- <layout:HorizontalLayout > -->
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <m:Label text="Sales Organization: " design="Bold"></m:Label>
+                                        <m:Text text=" 8091" textDirection="RTL"></m:Text>
                                         <!-- </layout:HorizontalLayout> -->
                                         <!-- <layout:HorizontalLayout > -->
-                                            <m:Label text="Sales Organization: " design="Bold"></m:Label>
-                                            <m:Text text=" 8091" textDirection="RTL"></m:Text>
-                                        <!-- </layout:HorizontalLayout> -->
-                                        <!-- <layout:HorizontalLayout > -->
-                                            <m:Label text="Distribution Chanel: " design="Bold"></m:Label>
-                                            <m:Text text="Direct Sales(10)"></m:Text>
+                                    </layout:VerticalLayout >
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <m:Label text="Distribution Chanel: " design="Bold"></m:Label>
+                                        <m:Text text="Direct Sales(10)"></m:Text>
                                         <!-- </layout:HorizontalLayout > -->
-                                         </layout:VerticalLayout >
-                                          <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                    </layout:VerticalLayout >
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <!-- <layout:HorizontalLayout > -->
-                                            <m:Label text="Division: " design="Bold"></m:Label>
-                                            <m:Text text="00"></m:Text>
+                                        <m:Label text="Division: " design="Bold"></m:Label>
+                                        <m:Text text="00"></m:Text>
+                                    </layout:VerticalLayout >
+                                    <!-- </layout:HorizontalLayout > -->
+                                    <!-- <layout:HorizontalLayout > -->
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <m:Label text="Sold-To-Party: " design="Bold"></m:Label>
+                                        <m:Text text=" "></m:Text>
                                         <!-- </layout:HorizontalLayout > -->
                                         <!-- <layout:HorizontalLayout > -->
-                                            <m:Label text="Sold-To-Party: " design="Bold"></m:Label>
-                                            <m:Text text=" "></m:Text>
-                                        <!-- </layout:HorizontalLayout > -->
-                                        <!-- <layout:HorizontalLayout > -->
-                                            <m:Label text="Order Type: " design="Bold"></m:Label>
-                                            <m:Text text="ZB2B"></m:Text>
+                                    </layout:VerticalLayout >
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <m:Label text="Order Type: " design="Bold"></m:Label>
+                                        <m:Text text="ZB2B"></m:Text>
                                         <!-- </layout:HorizontalLayout > -->
 
                                     </layout:VerticalLayout>
@@ -148,75 +155,119 @@
                                 </m:FlexBox>
                             </headerContent>
 
-                            <sections>
+                            <sections  >
                                 <ObjectPageSection titleUppercase="false" title="General Information">
                                     <subSections>
-                                        <ObjectPageSubSection title="General Information" titleUppercase="false">
-                                            <blocks>
-                                                <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
-                                                    <m:Label text="Customer Reference"/>
-                                                    <m:Input width="50%"/>
-                                                    <m:Label text="Customer Reference Date"/>
-                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
-                                                    <m:Label text="Request Delivery Date"/>
-                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
-                                                    <m:Label text="Ship-to-party" />
-                                                    <m:Input value="TBS010002"  editable="true" showValueHelp="true" description="The Brass Music Specialists"/>
-                                                    
-                                                </forms:SimpleForm>
+                                        <ObjectPageSubSection title="General Information" titleUppercase="false" class="customMargin">
+                                            <blocks >
+                                                <!-- <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom">
+                                                    <m:Panel expandable="true" expanded="true" width="auto" class="sapUiNoMarginTop" backgroundDesign="Transparent">
+                                                        <m:headerToolbar>
+                                                            <m:Toolbar>
+                                                                <m:Title text="General Information" />
+                                                                <m:ToolbarSpacer/>
+                                                            </m:Toolbar>
+                                                        </m:headerToolbar>
+                                                        <m:content> -->
+                                                            <!-- <layout:HorizontalLayout>
+                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
+                                                                    <forms:SimpleForm editable="true"  layout="ColumnLayout" class="sapUiSizeCompact">
+                                                                    <m:Label text="Customer Reference"/>
+                                                                    <m:Input width="50%"/>
+                                                                <!-- </layout:VerticalLayout>
+                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom"> -->
+                                                                    <m:Label text="Customer Reference Date"/>
+                                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
+                                                                <!-- </layout:VerticalLayout>
+                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
+                                                                    <m:Label text="Request Delivery Date"/>
+                                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
+                                                                <!-- </layout:VerticalLayout>
+                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
+                                                                    <m:Label text="Ship-to-party" />
+                                                                    <m:Input value="TBS010002" editable="true" showValueHelp="true" description="The Brass Music Specialists"/>
+                                                                <!-- </layout:VerticalLayout>
+                                                            </layout:HorizontalLayout>
+                                                        </m:content> -->
+                                                        </forms:SimpleForm>
+                                                    <!-- </m:Panel> -->
+                                                    <!-- <m:Panel expandable="true" expanded="true" width="auto" class="sapUiNoMarginTop" backgroundDesign="Transparent">
+                                                        <m:headerToolbar>
+                                                            <m:Toolbar>
+                                                                <m:Title text="Partner" />
+                                                                <m:ToolbarSpacer/>
+                                                            </m:Toolbar>
+                                                        </m:headerToolbar>
+                                                        <m:content>
+
+                                                            <layout:HorizontalLayout>
+
+                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%">
+                                                                    <m:Label text="Bill-to-party"/>
+                                                                    <m:Input value="TBS010002" editable="true" showValueHelp="true" description="Just for Reference"/>
+                                                                </layout:VerticalLayout>
+                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%">
+                                                                    <m:Label text="Payer"/>
+                                                                    <m:Input valueHelpOnly="true" width="50%" showValueHelp="true"/>
+
+
+                                                                </layout:VerticalLayout>
+                                                            </layout:HorizontalLayout>
+                                                        </m:content>
+
+                                                    </m:Panel> -->
+                                                <!-- </layout:VerticalLayout> -->
                                             </blocks>
                                         </ObjectPageSubSection>
                                     </subSections>
-                                    <subSections>
-                                        <ObjectPageSubSection title="Partner" titleUppercase="false">
-                                            <blocks>
-                                                <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
-                                                   <m:Label text="Bill-to-party"/>
-                                                    <m:Input value="TBS010002"  editable="true" showValueHelp="true" description="Just for Reference"/>
-                                                    <m:Label text="Payer"/>
-                                                    <m:Input valueHelpOnly="true" width="50%" showValueHelp="true"/>
-                                                </forms:SimpleForm>
-                                            </blocks>
-                                        </ObjectPageSubSection>
-                                    </subSections>
-                                     <subSections>
-                                        <ObjectPageSubSection title="Sales" titleUppercase="false">
-                                            <blocks>
-                                                <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
-                                                    <m:Label text="Payment Terms"/>
-                                                    <m:Input valueHelpOnly="true"  width="50%" editable="false"/>
-                                                     <m:Label text="Inco Location"/>
-                                                    <m:Input valueHelpOnly="true" width="50%" editable="false"/>
-                                                    <m:Label text="Inco Terms"/>
-                                                    <m:Input valueHelpOnly="true"  width="50%" editable="false"/>
-                                                    <m:Label text="Total Weight"/>
-                                                    <m:Input valueHelpOnly="true"  width="50%" editable="false"/>
-                                                    <m:Label text="Net Value"/>
-                                                    <m:Input valueHelpOnly="true" width="50%" editable="false"/>
-                                                </forms:SimpleForm>
-                                            </blocks>
-                                        </ObjectPageSubSection>
-                                    </subSections>
-                                    <!-- <subSections>
-                                        <ObjectPageSubSection title="Billing" titleUppercase="false">
-                                            <blocks>
-                                                <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
-                                                <m:Label text="Incoterms"/>
-                                                    <m:Input valueHelpOnly="true" showValueHelp="true"/>
-                                                     <m:Label text="Incoterms Location"/>
-                                                    <m:Input valueHelpOnly="true" showValueHelp="true"/>
-                                                     <m:Label text="Payment Terms"/>
-                                                    <m:Input valueHelpOnly="true" showValueHelp="true"/>
-                                                    
-                                                </forms:SimpleForm>
-                                            </blocks>
-                                        </ObjectPageSubSection>
-                                    </subSections> -->
+
+
                                 </ObjectPageSection>
-                                                                
+                                <ObjectPageSection titleUppercase="false" showTitle="false" title="Partner" titleLevel="H2">
+                                    <subSections>
+                                        <ObjectPageSubSection titleUppercase="false" class="customMargin">
+                                            <blocks>
+                                                        <forms:SimpleForm editable="true" title="Partner" layout="ColumnLayout" class="sapUiSizeCompact">
+                                                                <m:Label text="Bill-to-party"/>
+                                                                <m:Input value="" editable="true" width="50%" showValueHelp="true" description=""/>
+                                                                <m:Label text="Payer"/>
+                                                                <m:Input valueHelpOnly="true" width="50%" showValueHelp="true"/>
+                                                                </forms:SimpleForm>
+                                            </blocks>
+                                        </ObjectPageSubSection>
+                                    </subSections>
+                                </ObjectPageSection>
+                                <ObjectPageSection titleUppercase="false" showTitle="false" title="Sales">
+                                    <subSections>
+                                        <ObjectPageSubSection title="Sales" titleUppercase="false" class="customMargin">
+                                            <blocks>
+                                                <forms:SimpleForm columnsM="2" columnsL="3" columnsXL="4"  editable="false" title="Sales" layout="ColumnLayout" class="sapUiSizeCompact">
+
+                                                    <m:Label text="Payment Terms"/>
+                                                    <m:Text text="0001 - Pay immediately w/o deduction"/>
+                                                    <!-- <m:ObjectNumber number="0001" unit="Pay immediately w/o deduction" /> -->
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    <m:Label text="Inco Location"/>
+                                                    <m:Text text="EXW"/>
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    <m:Label text="Inco Terms"/>
+                                                    <m:Text text="EXW"/>
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    <m:Label text="Total Weight"/>
+                                                    
+                                                    <m:ObjectNumber number="31" unit="KG" />
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    <m:Label text="Net Value"/>
+                                                    <m:Text text=""/>
+                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                </forms:SimpleForm>
+                                            </blocks>
+                                        </ObjectPageSubSection>
+                                    </subSections>
+                                </ObjectPageSection>
                                 <ObjectPageSection titleUppercase="false" showTitle="false">
                                     <subSections>
-                                        <ObjectPageSubSection title="Items" titleUppercase="false">
+                                        <ObjectPageSubSection title="Items" titleUppercase="false" class="customMargin">
                                             <m:Table id="idTableItems" headerText="Sales Order Items" mode="MultiSelect" items="{itemModel>/items}">
                                                 <m:headerToolbar>
                                                     <m:OverflowToolbar>
@@ -229,22 +280,22 @@
                                                     </m:OverflowToolbar>
                                                 </m:headerToolbar>
                                                 <m:columns>
-                                                    <m:Column minScreenWidth="Tablet" width="5rem" demandPopin="true" >
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                         <m:header>
                                                             <m:Text text="Item" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" width="15%" demandPopin="true"  hAlign="Center">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Material" />
                                                         </m:header>
                                                     </m:Column>
-                                                     <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%" hAlign="End">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
                                                         <m:header>
                                                             <m:Text text="Material Description" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%" hAlign="End">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
                                                         <m:header>
                                                             <m:Text text="Order Quantity" />
                                                         </m:header>
@@ -252,9 +303,9 @@
                                                         <m:Input value="EUR" />
                                                         </m:footer> -->
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" width="10%" hAlign="Begin">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
                                                         <m:header>
-                                                            <m:Text text=""/>
+                                                            <m:Text text="Sales Unit"/>
                                                         </m:header>
                                                     </m:Column>
                                                     <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%" hAlign="Center">
@@ -262,8 +313,8 @@
                                                             <m:Text text="Requested Delivery Date" />
                                                         </m:header>
                                                     </m:Column>
-                                                   
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%"  hAlign="Center">
+
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Net Value" />
                                                         </m:header>
@@ -276,13 +327,14 @@
                                                 </m:columns>
                                                 <m:ColumnListItem>
                                                     <m:Text text="{itemModel>item}" />
-                                                    <m:Input value="{itemModel>material}" showValueHelp="true" valueHelpOnly="true" />
+                                                    <m:Input value="{itemModel>material}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleResponsivePopoverPress"/>
                                                     <m:Text text="{itemModel>description}" wrapping="true"/>
                                                     <m:Input value="{itemModel>quantity}" width="90%"/>
-                                                    <m:Input value="{itemModel>uom}" width="20%" showValueHelp="true"/>
+                                                    <m:Text text="{itemModel>uom}"/>
+                                                    <!-- <m:Input value="" width="20%" showValueHelp="true"/> -->
                                                     <m:DatePicker change="onSelectDate"></m:DatePicker>
                                                     <m:Text text="{itemModel>netValue}" />
-                                                    
+
                                                     <m:Text text="{itemModel>plant}" />
                                                 </m:ColumnListItem>
                                             </m:Table>
@@ -300,12 +352,12 @@
                         </ObjectPageLayout>
                     </m:content>
                     <m:footer>
-                                <m:OverflowToolbar>
-                                    <m:ToolbarSpacer />
-                                    <m:Button type="Accept" text="Save" />
-                                    <m:Button type="Reject" text="Cancel" press="onClickCancel"/>
-                                </m:OverflowToolbar>
-                            </m:footer>
+                        <m:OverflowToolbar>
+                            <m:ToolbarSpacer />
+                            <m:Button type="Accept" text="Save" />
+                            <m:Button type="Reject" text="Cancel" press="onClickCancel"/>
+                        </m:OverflowToolbar>
+                    </m:footer>
                 </m:Page>
             </m:pages>
         </m:App>
