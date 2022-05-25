@@ -82,9 +82,6 @@ sap.ui.define([
                 }
                 oModelItem.refresh();
             },
-<<<<<<< HEAD
-            onClickCancel: function () {
-=======
             onShipToPartyLinkPress: function (oEvent) {
                 var oButton = oEvent.getSource(),
 				oView = this.getView();
@@ -105,7 +102,6 @@ sap.ui.define([
 			    });
             },
             onClickCancel: function(){
->>>>>>> 06dc3508d619d15838d6a5a4fe6750fed64c5c02
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("RouteTrackView");
             },
