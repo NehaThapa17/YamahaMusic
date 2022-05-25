@@ -181,7 +181,11 @@
                                                     <!-- </layout:VerticalLayout>
                                                                 <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
                                                     <m:Label text="Ship-to-party" />
+                                                    <!-- <m:VBox > -->
                                                     <m:Input value="TBS010002" editable="true" showValueHelp="true" description="The Brass Music Specialists"/>
+                                                    <m:Label/>
+                                                    <m:Link text="Select Ship-To-Party" press="onShipToPartyLinkPress"/>
+                                                    <!-- </m:VBox> -->
                                                     <!-- </layout:VerticalLayout>
                                                             </layout:HorizontalLayout>
                                                         </m:content> -->
