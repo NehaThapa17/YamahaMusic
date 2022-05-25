@@ -60,6 +60,25 @@ sap.ui.define([
                 }
                 oModelItem.refresh();
             },
+            onShipToPartyLinkPress: function (oEvent) {
+                var oButton = oEvent.getSource(),
+				oView = this.getView();
+
+                if (!this._shipToPartyPopover) {
+                    this._shipToPartyPopover = Fragment.load({
+                        id: oView.getId(),
+                        name: "yamahamusic.so.createso.project.fragments.ShipToPartyList",
+                        controller: this
+                    }).then(function(oPopover) {
+                        oView.addDependent(oPopover);
+                        // oPopover.bindElement("/ProductCollection/0");
+                        return oPopover;
+                    });
+                }
+                this._shipToPartyPopover.then(function(oPopover) {
+                    oPopover.openBy(oButton);
+			    });
+            },
             onClickCancel: function(){
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("RouteTrackView");
