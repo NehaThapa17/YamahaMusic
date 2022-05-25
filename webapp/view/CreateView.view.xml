@@ -4,6 +4,7 @@
     xmlns:chart="sap.suite.ui.microchart"
     xmlns:layout="sap.ui.layout"
     xmlns:forms="sap.ui.layout.form"
+    xmlns:si="sap.suite.ui.commons.statusindicator"
     xmlns:m="sap.m" height="100%">
     <m:Shell >
         <m:App >
@@ -169,29 +170,24 @@
                                                             </m:Toolbar>
                                                         </m:headerToolbar>
                                                         <m:content> -->
-                                                            <!-- <layout:HorizontalLayout>
+                                                <!-- <layout:HorizontalLayout>
                                                                 <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
-                                                                    <forms:SimpleForm editable="true"  layout="ColumnLayout" class="sapUiSizeCompact">
-                                                                    <m:Label text="Customer Reference"/>
-                                                                    <m:Input width="50%"/>
-                                                                <!-- </layout:VerticalLayout>
-                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom"> -->
-                                                                    <m:Label text="Customer Reference Date"/>
-                                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
-                                                                <!-- </layout:VerticalLayout>
+                                                <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
+                                                    <m:Label text="Customer Reference"/>
+                                                    <m:Input width="50%"/>
+
+                                                    <m:Label text="Request Delivery Date"/>
+                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
+                                                    <!-- </layout:VerticalLayout>
                                                                 <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
-                                                                    <m:Label text="Request Delivery Date"/>
-                                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
-                                                                <!-- </layout:VerticalLayout>
-                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
-                                                                    <m:Label text="Ship-to-party" />
-                                                                    <m:Input value="TBS010002" editable="true" showValueHelp="true" description="The Brass Music Specialists"/>
-                                                                <!-- </layout:VerticalLayout>
+                                                    <m:Label text="Ship-to-party" />
+                                                    <m:Input value="TBS010002" editable="true" showValueHelp="true" description="The Brass Music Specialists"/>
+                                                    <!-- </layout:VerticalLayout>
                                                             </layout:HorizontalLayout>
                                                         </m:content> -->
-                                                        </forms:SimpleForm>
-                                                    <!-- </m:Panel> -->
-                                                    <!-- <m:Panel expandable="true" expanded="true" width="auto" class="sapUiNoMarginTop" backgroundDesign="Transparent">
+                                                </forms:SimpleForm>
+                                                <!-- </m:Panel> -->
+                                                <!-- <m:Panel expandable="true" expanded="true" width="auto" class="sapUiNoMarginTop" backgroundDesign="Transparent">
                                                         <m:headerToolbar>
                                                             <m:Toolbar>
                                                                 <m:Title text="Partner" />
@@ -223,7 +219,7 @@
 
 
                                 </ObjectPageSection>
-                                <ObjectPageSection titleUppercase="false" showTitle="false" title="Partner" titleLevel="H2">
+                                <!-- <ObjectPageSection titleUppercase="false" showTitle="false" title="Partner" titleLevel="H2">
                                     <subSections>
                                         <ObjectPageSubSection titleUppercase="false" class="customMargin">
                                             <blocks>
@@ -236,25 +232,13 @@
                                             </blocks>
                                         </ObjectPageSubSection>
                                     </subSections>
-                                </ObjectPageSection>
+                                </ObjectPageSection> -->
                                 <ObjectPageSection titleUppercase="false" showTitle="false" title="Sales">
                                     <subSections>
                                         <ObjectPageSubSection title="Sales" titleUppercase="false" class="customMargin">
                                             <blocks>
-                                                <forms:SimpleForm columnsM="2" columnsL="3" columnsXL="4"  editable="false" title="Sales" layout="ColumnLayout" class="sapUiSizeCompact">
-
-                                                    <m:Label text="Payment Terms"/>
-                                                    <m:Text text="0001 - Pay immediately w/o deduction"/>
-                                                    <!-- <m:ObjectNumber number="0001" unit="Pay immediately w/o deduction" /> -->
-                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
-                                                    <m:Label text="Inco Location"/>
-                                                    <m:Text text="EXW"/>
-                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
-                                                    <m:Label text="Inco Terms"/>
-                                                    <m:Text text="EXW"/>
-                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                <forms:SimpleForm editable="false" title="Sales" layout="ColumnLayout" class="sapUiSizeCompact">
                                                     <m:Label text="Total Weight"/>
-                                                    
                                                     <m:ObjectNumber number="31" unit="KG" />
                                                     <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
                                                     <m:Label text="Net Value"/>
@@ -280,7 +264,7 @@
                                                     </m:OverflowToolbar>
                                                 </m:headerToolbar>
                                                 <m:columns>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                    <m:Column minScreenWidth="Tablet" width="5rem" demandPopin="true">
                                                         <m:header>
                                                             <m:Text text="Item" />
                                                         </m:header>
@@ -319,9 +303,9 @@
                                                             <m:Text text="Net Value" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column hAlign="Center" width="10%">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" >
                                                         <m:header>
-                                                            <m:Text text="Plant" />
+                                                            <m:Text text="Availability Status" />
                                                         </m:header>
                                                     </m:Column>
                                                 </m:columns>
@@ -334,27 +318,32 @@
                                                     <!-- <m:Input value="" width="20%" showValueHelp="true"/> -->
                                                     <m:DatePicker change="onSelectDate"></m:DatePicker>
                                                     <m:Text text="{itemModel>netValue}" />
-
-                                                    <m:Text text="{itemModel>plant}" />
+                                                    <m:FlexBox class="sapUiSmallMarginBegin" alignItems="Center" justifyContent="Center">
+                                                    <si:StatusIndicator value="{itemModel>status}"  size="Medium"  showLabel="false" labelPosition="Right">
+                                                        <si:ShapeGroup>
+                                                        <si:LibraryShape  shapeId="cart" fillingType="Linear"  />
+                                                        </si:ShapeGroup>
+                                                        <si:propertyThresholds>
+                                                            <si:PropertyThreshold fillColor="Critical" toValue="60"/>
+                                                            <si:PropertyThreshold fillColor="Error" toValue="30"/>
+                                                            <si:PropertyThreshold fillColor="Good" toValue="100"/>
+                                                        </si:propertyThresholds>
+                                                    </si:StatusIndicator>
+                                                    </m:FlexBox>
+                                                    <!-- <m:Text text="{itemModel>plant}" /> -->
                                                 </m:ColumnListItem>
                                             </m:Table>
                                         </ObjectPageSubSection>
                                     </subSections>
                                 </ObjectPageSection>
                             </sections>
-                            <!-- <footer>
-                                <m:OverflowToolbar>
-                                    <m:ToolbarSpacer />
-                                    <m:Button type="Accept" text="Save"/>
-                                    <m:Button type="Reject" text="Cancel"/>
-                                </m:OverflowToolbar>
-                            </footer> -->
+
                         </ObjectPageLayout>
                     </m:content>
                     <m:footer>
                         <m:OverflowToolbar>
                             <m:ToolbarSpacer />
-                            <m:Button type="Accept" text="Save" />
+                            <m:Button type="Accept" text="Place Orders" />
                             <m:Button type="Reject" text="Cancel" press="onClickCancel"/>
                         </m:OverflowToolbar>
                     </m:footer>

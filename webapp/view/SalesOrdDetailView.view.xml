@@ -4,6 +4,7 @@
     xmlns:chart="sap.suite.ui.microchart"
     xmlns:layout="sap.ui.layout"
     xmlns:forms="sap.ui.layout.form"
+    xmlns:si="sap.suite.ui.commons.statusindicator"
     xmlns:m="sap.m" height="100%">
     <m:Shell >
         <m:App >
@@ -12,6 +13,7 @@
                     <m:content>
                         <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="false" showFooter="true">
                             <headerTitle>
+                            
                                 <ObjectPageDynamicHeaderTitle>
                                     <expandedHeading>
                                         <m:HBox>
@@ -33,6 +35,7 @@
                                         <m:Title text="1200234"/>
                                     </snappedTitleOnMobile>
                                     <actions>
+                                    <m:Button text="Display Document Flow" /> 
                                     </actions>
                                 </ObjectPageDynamicHeaderTitle>
                             </headerTitle>
@@ -73,10 +76,6 @@
                                                 <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
                                                     <m:Label text="Customer Reference"/>
                                                     <m:Text text=""/>
-                                                    <!-- <m:Input width="50%" editable="false"/> -->
-                                                    <m:Label text="Customer Reference Date"/>
-                                                    <m:Text text=""/>
-                                                    <!-- <m:DatePicker change="onChangeCRDate" width="50%" editable="false"/> -->
                                                     <m:Label text="Request Delivery Date"/>
                                                     <m:Text text=""/>
                                                     <!-- <m:DatePicker change="onChangeCRDate" width="50%" editable="false"/> -->
@@ -118,35 +117,13 @@
                                         </ObjectPageSubSection>
                                     </subSections> -->
                                 </ObjectPageSection>
-                                <ObjectPageSection titleUppercase="false" showTitle="false" title="Partner" titleLevel="H2">
-                                    <subSections>
-                                        <ObjectPageSubSection titleUppercase="false" class="customMargin">
-                                            <blocks>
-                                                <forms:SimpleForm editable="true" layout="ColumnLayout" title="Partner" class="sapUiSizeCompact">
-                                                    <m:Label text="Bill-to-party"/>
-                                                    <m:Text text="TBS010002 - Just for Reference"/>
-                                                    <m:Label text="Payer"/>
-                                                    <m:Text text=""></m:Text>
-                                                </forms:SimpleForm>
-                                            </blocks>
-                                        </ObjectPageSubSection>
-                                    </subSections>
-                                </ObjectPageSection>
+                               
                                 <ObjectPageSection titleUppercase="false" showTitle="false" title="Sales">
                                     <subSections>
                                         <ObjectPageSubSection titleUppercase="false" class="customMargin">
                                             <blocks>
-                                                <forms:SimpleForm columnsM="2" columnsL="3" columnsXL="4"  editable="false" title="Sales" layout="ColumnLayout" class="sapUiSizeCompact">
+                                                <forms:SimpleForm editable="false" title="Sales" layout="ColumnLayout" class="sapUiSizeCompact">
 
-                                                    <m:Label text="Payment Terms"/>
-                                                    <m:Text text="0001 - Pay immediately w/o deduction"/>
-                                                    <m:Label text="Inco Location"/>
-                                                    <m:Text text="EXW"/>
-
-                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
-                                                    <m:Label text="Inco Terms"/>
-                                                    <m:Text text="EXW"/>
-                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
                                                     <m:Label text="Total Weight"/>
                                                     <m:Text text="31 KG" />
                                                     <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
@@ -172,7 +149,7 @@
                                                     </m:OverflowToolbar>
                                                 </m:headerToolbar>
                                                 <m:columns>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                    <m:Column minScreenWidth="Tablet" width="5rem" demandPopin="true">
                                                         <m:header>
                                                             <m:Text text="Item" />
                                                         </m:header>
@@ -195,6 +172,11 @@
                                                         <m:Input value="EUR" />
                                                         </m:footer> -->
                                                     </m:Column>
+                                                     <!-- <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+                                                        <m:header>
+                                                            <m:Text text="Sales Unit"/>
+                                                        </m:header>
+                                                    </m:Column> -->
                                                     <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Requested Delivery Date" />
@@ -206,9 +188,9 @@
                                                             <m:Text text="Net Value" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column hAlign="Center">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
-                                                            <m:Text text="Plant" />
+                                                            <m:Text text="Availability Status" />
                                                         </m:header>
                                                     </m:Column>
                                                 </m:columns>
@@ -219,7 +201,18 @@
                                                     <m:ObjectNumber number="1" unit="EA" />
                                                     <m:Text text="18.05.2022" />
                                                     <m:Text text="" />
-                                                    <m:Text text="8091" />
+                                                    <m:FlexBox class="sapUiSmallMarginBegin" alignItems="Center" justifyContent="Center">
+                                                    <si:StatusIndicator value="65"  size="Medium"  showLabel="false" labelPosition="Right">
+                                                        <si:ShapeGroup>
+                                                        <si:LibraryShape  shapeId="cart" fillingType="Linear"  />
+                                                        </si:ShapeGroup>
+                                                        <si:propertyThresholds>
+                                                            <si:PropertyThreshold fillColor="Critical" toValue="60"/>
+                                                            <si:PropertyThreshold fillColor="Error" toValue="30"/>
+                                                            <si:PropertyThreshold fillColor="Good" toValue="100"/>
+                                                        </si:propertyThresholds>
+                                                    </si:StatusIndicator>
+                                                    </m:FlexBox>
                                                 </m:ColumnListItem>
                                             </m:Table>
                                         </ObjectPageSubSection>

@@ -37,7 +37,7 @@ sap.ui.define([
                     "uom": "EA",
                     "deliveryDate": null,
                     "netValue": "",
-                    "plant": "8091"
+                    "status": "40"
                 };
                 aItems.push(oItem);
                 oModelItem.refresh();
@@ -108,6 +108,12 @@ sap.ui.define([
                 var sKey = oEvent.getParameter("selectedItem").getKey();
     
                 oTable.setSelectionMode(sKey);
+            },
+            onChangeCRDate:function(oEvt){
+                debugger;
+               var oDP = oEvt.getSource(),
+				sValue = oEvt.getParameter("value");
+
             }
         });
     });
