@@ -6,12 +6,12 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     'sap/ui/core/Fragment',
     "sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (UIComponent, History, Controller, JSONModel, Fragment,Filter,FilterOperator) {
+    function (UIComponent, History, Controller, JSONModel, Fragment, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("yamahamusic.so.createso.project.controller.CreateView", {
@@ -19,20 +19,29 @@ sap.ui.define([
                 // var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/products.json"));
                 // this.getView().setModel(oModel);
                 var oModel = new JSONModel();
-                 
+
                 var oItemData = {
                     "items": [],
                     "material": [
                         {
                             "mat": "AA768",
                             "description": "Material For Test1",
+                            "sloc":"LOC1",
                             "value": "20"
 
                         },
                         {
                             "mat": "AA564",
                             "description": "Material for Test2",
+                            "sloc":"LOC2",
                             "value": "60"
+
+                        },
+                        {
+                            "mat": "AA908",
+                            "description": "Material for Test3",
+                            "sloc":"LOC3",
+                            "value": "80"
 
                         }
                     ]
@@ -40,9 +49,25 @@ sap.ui.define([
                 // var oMatData = {};
 
                 oModel.setData(oItemData);
-                // oModel.push(oMatData);
                 this.getView().setModel(oModel, "itemModel");
                 this.addItem();
+                
+                //*******Calendar Default Date to 3days from current date *******//
+                var dateCurr = new Date();
+                dateCurr.setDate(dateCurr.getDate() + 3);
+                // this.getView().byId("idDPHeader").setDateValue(dateCurr);
+                //*******Dynamic ID for Calender input in Item Table *******//
+                // var dynId = this.getView().getId() + "--idDPItem-" + this.getView().getId() + "--idTableItems-0";
+                //*******Calendar Limit to 40days *******//
+                var date = new Date();
+                date.setDate(date.getDate() + 40);
+                // this.getView().byId("idDPHeader").setMinDate(new Date());
+                // this.getView().byId("idDPHeader").setMaxDate(new Date(date));
+                // this.getView().byId(dynId).setMinDate(new Date());
+                // this.getView().byId(dynId).setMaxDate(new Date(date));
+                //*******Calendar Limit to 40days *******//
+                
+
             },
 
             addItem: function () {
@@ -54,7 +79,7 @@ sap.ui.define([
                 var oItem = {
                     "item": itemNo,
                     "material": "",
-                    "description": "Material " + nIndex,
+                    "description": "Material Description " + nIndex,
                     "quantity": "",
                     "uom": "EA",
                     "deliveryDate": null,
@@ -63,6 +88,14 @@ sap.ui.define([
                 };
                 aItems.push(oItem);
                 oModelItem.refresh();
+                //*******Dynamic ID for Calender in Item Table *******//
+                // var dynIdI = this.getView().getId() + "--idDPItem-" + this.getView().getId() + "--idTableItems-" + nIndex;
+                // this.getView().byId(dynIdI).setMinDate(new Date());
+                //*******Calendar Limit to 40days *******//
+                var date = new Date();
+                date.setDate(date.getDate() + 40);
+                //*******Calendar Limit to 40days *******//
+                // this.getView().byId(dynIdI).setMaxDate(new Date(date));
             },
 
             deleteItem: function () {
@@ -84,24 +117,24 @@ sap.ui.define([
             },
             onShipToPartyLinkPress: function (oEvent) {
                 var oButton = oEvent.getSource(),
-				oView = this.getView();
+                    oView = this.getView();
 
                 if (!this._shipToPartyPopover) {
                     this._shipToPartyPopover = Fragment.load({
                         id: oView.getId(),
                         name: "yamahamusic.so.createso.project.fragments.ShipToPartyList",
                         controller: this
-                    }).then(function(oPopover) {
+                    }).then(function (oPopover) {
                         oView.addDependent(oPopover);
                         // oPopover.bindElement("/ProductCollection/0");
                         return oPopover;
                     });
                 }
-                this._shipToPartyPopover.then(function(oPopover) {
+                this._shipToPartyPopover.then(function (oPopover) {
                     oPopover.openBy(oButton);
-			    });
+                });
             },
-            onClickCancel: function(){
+            onClickCancel: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("RouteTrackView");
             },
@@ -147,8 +180,8 @@ sap.ui.define([
             onValueHelpRequest: function (oEvent) {
                 var sInputValue = oEvent.getSource().getValue(),
                     oView = this.getView();
-                    oId = oEvent.getSource().sId;
-    
+                oId = oEvent.getSource().sId;
+
                 if (!this._pValueHelpDialog) {
                     this._pValueHelpDialog = Fragment.load({
                         id: oView.getId(),
@@ -159,7 +192,7 @@ sap.ui.define([
                         return oDialog;
                     });
                 }
-                this._pValueHelpDialog.then(function(oDialog) {
+                this._pValueHelpDialog.then(function (oDialog) {
                     // Create a filter for the binding
                     oDialog.getBinding("items").filter([new Filter("mat", FilterOperator.Contains, sInputValue)]);
                     // Open ValueHelpDialog filtered by the input's value
@@ -169,25 +202,73 @@ sap.ui.define([
             onValueHelpSearch: function (oEvent) {
                 var sValue = oEvent.getParameter("value");
                 var oFilter = new Filter("mat", FilterOperator.Contains, sValue);
-    
+
                 oEvent.getSource().getBinding("items").filter([oFilter]);
             },
-    
+
             onValueHelpClose: function (oEvent) {
                 var oSelectedItem = oEvent.getParameter("selectedItem");
                 oEvent.getSource().getBinding("items").filter([]);
-    
+                var aContexts = oEvent.getParameter("selectedContexts");
+                var selMat = aContexts.map(function (oContext) { return oContext.getObject().mat; });
+                var selMatDsc = aContexts.map(function (oContext) { return oContext.getObject().description; });
                 if (!oSelectedItem) {
                     return;
                 }
-    
-                // this.getView().byId(oId).setValue(oSelectedItem.getTitle());
+                var oIdDsc = this.getView().getId() + "--idMatDscTxt-" + this.getView().getId() + "--idTableItems-" + oId.charAt(oId.length - 1) ;
+                this.getView().byId(oId).setValue(selMat[0]);
+                this.getView().byId(oIdDsc).setText(selMatDsc[0]);
             },
             onSelectionModeChange: function (oEvent) {
                 var oTable = this.byId("table");
                 var sKey = oEvent.getParameter("selectedItem").getKey();
 
                 oTable.setSelectionMode(sKey);
+            },
+            // onDefaultCBDate:function(oEvent){
+            //     var vSel = oEvent.getParameters().selected;
+            //     if (vSel === false){
+            //         this.getView().byId("idDPHeader").setEnabled(true);
+            //     }
+            //     else {
+            //         this.getView().byId("idDPHeader").setEnabled(false);
+            //     }
+                
+            // },
+            onBuyerPartyF4Help: function(oEvent){
+                var sInputValue = oEvent.getSource().getValue(),
+                oView = this.getView();
+                if (!this._pValueHelpDialogSH) {
+                    this._pValueHelpDialogSH = Fragment.load({
+                        id: oView.getId(),
+                        name: "yamahamusic.so.createso.project.fragments.BuyerPartyList",
+                        controller: this
+                    }).then(function (oDialog) {
+                        oView.addDependent(oDialog);
+                        return oDialog;
+                    });
+                }
+                this._pValueHelpDialogSH.then(function (oDialog) {
+                    // Create a filter for the binding
+                    // oDialog.getBinding("items").filter([new Filter("mat", FilterOperator.Contains, sInputValue)]);
+                    // Open ValueHelpDialog filtered by the input's value
+                    oDialog.open();
+                });
+                
+            },
+            onValueHelpCloseSH:function(oEvent){
+                var oSelectedItem = oEvent.getParameter("selectedItem");
+                
+                var aContexts = oEvent.getParameter("selectedContexts");
+               
+                if (!oSelectedItem) {
+                    return;
+                } else
+               {
+                    this.getView().byId("idBuyerIdInput").setValue(oSelectedItem.getTitle());
+                    this.getView().byId("idBuyerIdInput").setDescription(oSelectedItem.getDescription());
+                    this.getView().byId("idShipToInput").setEnabled(true);
+               }
             },
             onChangeCRDate: function (oEvt) {
                 debugger;
@@ -231,13 +312,9 @@ sap.ui.define([
                         oDate = sValue.subractDays(1);
                         break;
                 }
-                oDP.setDateValue(oDate);
+                oDP.setDateValue(oSelDate);
 
             },
-            addDays: function (days) {
-                var date = new Date(this.valueOf());
-                date.setDate(date.getDate() + days);
-                return date;
-            }
+
         });
     });

@@ -1,13 +1,63 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<SelectDialog
-		id="selectDialog"
-		title="Materials"
-		items="{itemModel>/material}"
-		search=".onValueHelpSearch"
-		confirm=".onValueHelpClose"
-		cancel=".onValueHelpClose">
-		<StandardListItem
-			title="{itemModel>mat}"
-			description="{itemModel>description}" />
-	</SelectDialog>
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:si="sap.suite.ui.commons.statusindicator"
+    xmlns:ui="sap.ui.table">
+    <!-- <m:SelectDialog id="selectDialog" title="Materials" items="{itemModel>/material}" search=".onValueHelpSearch" confirm=".onValueHelpClose" cancel=".onValueHelpClose"> <StandardListItem title="{itemModel>mat}" description="{itemModel>description}" />
+            
+	</m:SelectDialog> -->
+    <TableSelectDialog id="myDialog" contentWidth="50%" noDataText="No Products Found" title="Select Material" search=".onValueHelpSearch" confirm=".onValueHelpClose" cancel=".onValueHelpClose" items="{itemModel>/material}">
+        <ColumnListItem vAlign="Middle">
+            <cells>
+                <ObjectIdentifier title="{itemModel>mat}" text="{itemModel>description}" />
+                 <Text text="{itemModel>sloc}" />
+				<!--<Text text="{Width} x {Depth} x {Height} {DimUnit}" /> <ObjectNumber number="{WeightMeasure}" unit="{WeightUnit}" state="{
+						path: 'WeightMeasure',
+						formatter: 'sap.m.sample.TableSelectDialog.Formatter.weightState'
+					}" /> -->
+                <!-- <FlexBox class="sapUiSmallMarginBegin" alignItems="Center" justifyContent="Center"> -->
+                    <si:StatusIndicator value="{itemModel>value}" size="Medium" showLabel="false" labelPosition="Right">
+                        <si:ShapeGroup>
+                            <si:LibraryShape shapeId="cart" fillingType="Linear" />
+                        </si:ShapeGroup>
+                        <si:propertyThresholds>
+                            <si:PropertyThreshold fillColor="Critical" toValue="60"/>
+                            <si:PropertyThreshold fillColor="Error" toValue="30"/>
+                            <si:PropertyThreshold fillColor="Good" toValue="100"/>
+                        </si:propertyThresholds>
+                    </si:StatusIndicator>
+                <!-- </FlexBox> -->
+            </cells>
+        </ColumnListItem>
+        <columns>
+            <Column width="12em">
+                <header>
+                    <Text text="Material" />
+                </header>
+            </Column>
+            <Column width="12em">
+                <header>
+                    <Text text="Storage Location" />
+                </header>
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <header>
+                    <Text text="Availability Status" />
+                </header>
+            </Column>
+            <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+				<header>
+					<Text text="Dimensions" />
+				</header>
+			</Column> <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="Weight" />
+				</header>
+			</Column>
+			<Column hAlign="End">
+				<header>
+					<Text text="Product" />
+				</header>
+			</Column> -->
+        </columns>
+    </TableSelectDialog>
 </core:FragmentDefinition>

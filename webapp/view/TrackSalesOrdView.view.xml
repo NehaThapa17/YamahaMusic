@@ -17,7 +17,7 @@
                             <f:title>
                                 <f:DynamicPageTitle>
                                     <f:heading>
-                                        <vm:VariantManagement standardItemText="Track Sales Order">
+                                        <vm:VariantManagement standardItemText="Track My Order">
                                         </vm:VariantManagement>
                                     </f:heading>
                                     <f:actions>
@@ -33,7 +33,7 @@
                                     <f:content>
                                         <fb:FilterBar id="filterbar" reset="onReset" class="sapUiSizeCompact" search="onSearch" useToolbar="false" showGoOnFB="true">
                                             <fb:filterGroupItems>
-                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Sales Document No" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Document No" partOfCurrentVariant="true" visibleInFilterBar="true">
                                                     <fb:control>
                                                         <!-- <MultiComboBox selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish" showSelectAll="true" width="350px">
                                                             <core:Item key="001123" text="001123"/>
@@ -48,19 +48,16 @@
                                                         <DatePicker change="onChange"/>
                                                     </fb:control>
                                                 </fb:FilterGroupItem>
+                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="E" label="Buyer Party" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                                    <fb:control>
+                                                        <Input type="Text" change="onChange" showValueHelp="true"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>
                                                 <fb:FilterGroupItem groupName="__$INTERNAL$" name="A1" label="Customer Reference" partOfCurrentVariant="true" visibleInFilterBar="true">
                                                     <fb:control>
                                                         <Input type="Text" change="onChange"/>
                                                     </fb:control>
                                                 </fb:FilterGroupItem>
-                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="Created On" partOfCurrentVariant="true" visibleInFilterBar="true">
-                                                    <fb:control>
-                                                        <DatePicker change="onChange"/>
-                                                    </fb:control>
-                                                </fb:FilterGroupItem>
-
-
-                                                                                                
                                                 <fb:FilterGroupItem groupName="__$INTERNAL$" name="os" label="Order Status" partOfCurrentVariant="true" visibleInFilterBar="true">
                                                     <fb:control>
                                                         <Select ></Select>
@@ -71,8 +68,11 @@
                                                         <Select ></Select>
                                                     </fb:control>
                                                 </fb:FilterGroupItem>
-                                                
-                                                
+                                                <fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="Created On" partOfCurrentVariant="true" visibleInFilterBar="true">
+                                                    <fb:control>
+                                                        <DatePicker change="onChange"/>
+                                                    </fb:control>
+                                                </fb:FilterGroupItem>   
                                             </fb:filterGroupItems>
                                         </fb:FilterBar>
                                     </f:content>
@@ -84,78 +84,82 @@
                                 <Table id="idProductsTable" inset="false">
                                 <headerToolbar>
                                 <OverflowToolbar>
-                                    <Title text="Sales Orders (3)"/>
+                                    <Title text="My Orders (3)"/>
                                     <ToolbarSpacer/>
-                                    <Button text="Create Sales Order" type="Emphasized" press="onPressCreateSO"/>
+                                    <Button text="Create My Order" type="Emphasized" press="onPressCreateSO"/>
                                     <!-- <Button icon="sap-icon://action-settings"/> -->
                                 </OverflowToolbar>
                                 </headerToolbar>
 
                                     <columns>
                                         <Column minScreenWidth="Tablet" demandPopin="true">
-                                            <Text text="Sales Document"/>
-                                        </Column>
-                                        <Column minScreenWidth="Tablet" demandPopin="true">
-                                            <Text text="Customer Reference"/>
-                                        </Column>
-                                        <Column minScreenWidth="Tablet" demandPopin="true">
-                                            <Text text="Requested Delivery Date"/>
-                                        </Column>
-                                        <Column minScreenWidth="Tablet" demandPopin="true">
-                                            <Text text="Net Value"/>
+                                            <Text text="Document No"/>
                                         </Column>
                                         <Column minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="Document Date"/>
                                         </Column>
                                         <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Buyer Party"/>
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Customer Reference"/>
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Net Value"/>
+                                        </Column>
+                                         <Column minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="Order Status"/>
                                         </Column>
                                         <Column minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="Delivery Status"/>
                                         </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="Created On"/>
+                                        </Column>
+                                        
+                                        
+                                       
                                     </columns>
 
                                     <items>
                                         <ColumnListItem vAlign="Middle" type="Navigation" press="onTitleClicked">
                                             <cells>
                                                 <ObjectIdentifier title="1200234" text="" titleActive="true" titlePress="onTitleClicked"/>
-                                                <Text text="PO12345-O10"/>
-                                               
                                                 <Text text="21.05.2022"/>
-                                                <Text text="52.66 AUD"/>
+                                                <Text text="Dealer A"/>
+                                                <Text text="PO12345-O10"/>
+                                                
+                                               <Text text="52.66 AUD"/>
+                                                <Text text="Open"/>
+                                                <Text text="Open"/>
                                                 <Text text="17.05.2022"/>
                                               
-                                                <Text text="Open"/>
-                                                <Text text="Open"/>
-                                      
                                             </cells>
                                         </ColumnListItem>
                                         <ColumnListItem vAlign="Middle" type="Navigation" press="onTitleClicked">
                                             <cells>
                                                 <ObjectIdentifier title="1200235" text="" titleActive="true" titlePress="onTitleClicked"/>
-                                                <Text text="PO12345-O10"/>
-                                               
                                                 <Text text="21.05.2022"/>
-                                                <Text text="100.96 AUD"/>
-                                                <Text text="17.05.2022"/>
+                                                <Text text="Dealer B"/>
+                                                <Text text="PO12345-O10"/>
                                                 
+                                                <Text text="100.96 AUD"/>
                                                 <Text text="Open"/>
                                                 <Text text="Open"/>
-                                              
-                                            </cells>
+                                                <Text text="17.05.2022"/>
+                                                </cells>
                                         </ColumnListItem>
                                         <ColumnListItem vAlign="Middle" type="Navigation" press="onTitleClicked">
                                             <cells>
                                                 <ObjectIdentifier title="1200236" text="" titleActive="true" titlePress="onTitleClicked"/>
-                                                <Text text="PO12345-O10"/>
-                                               
                                                 <Text text="21.05.2022"/>
-                                                <Text text="34.75 AUD"/>
-                                                <Text text="17.05.2022"/>
-                                               
-                                                <Text text="Open"/>
-                                                <Text text="Open"/>
+                                                <Text text="Dealer C"/>
+                                                <Text text="PO12345-O10"/>
                                                 
+                                                <Text text="34.75 AUD"/>
+                                                <Text text="Open"/>
+                                                <Text text="Open"/>
+                                                <Text text="17.05.2022"/>
                                             </cells>
                                         </ColumnListItem>
                                     </items>

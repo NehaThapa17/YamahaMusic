@@ -9,7 +9,7 @@
     <m:Shell >
         <m:App >
             <m:pages>
-                <m:Page id="page" showHeader="true" showFooter="true" showNavButton="true" navButtonPress="onNavBack">
+                <m:Page id="page" showHeader="false" showFooter="true" showNavButton="true" navButtonPress="onNavBack">
                     <!-- title="{i18n>title}" -->
                     <m:content>
                         <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="false" showFooter="true">
@@ -36,7 +36,7 @@
 
                                     <expandedHeading>
                                         <m:HBox>
-                                            <m:Title text="New Sales Order" wrapping="true"/>
+                                            <m:Title text="New Order" wrapping="true"/>
                                             <!-- <m:ObjectMarker type="Favorite" class="sapUiTinyMarginBegin"/> -->
                                         </m:HBox>
                                     </expandedHeading>
@@ -44,7 +44,7 @@
                                     <snappedHeading>
                                         <m:FlexBox fitContainer="true" alignItems="Center">
                                             <!-- <m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiTinyMarginEnd"/> -->
-                                            <m:Title text="New Sales Order" wrapping="true"/>
+                                            <m:Title text="New Order" wrapping="true"/>
                                         </m:FlexBox>
                                     </snappedHeading>
 
@@ -77,82 +77,47 @@
 
                             <headerContent >
                                 <m:FlexBox wrap="Wrap" class="sapUiNoMargin">
-
-                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                                        <!-- <layout:HorizontalLayout > -->
+                                    <!-- <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Sales Area" design="Bold" textDirection="LTR"/>
                                         <m:Text text="" />
-                                    </layout:VerticalLayout >
-                                    <!-- </layout:HorizontalLayout> -->
-                                    <!-- <layout:HorizontalLayout > -->
+                                    </layout:VerticalLayout > -->
                                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Sales Organization: " design="Bold"></m:Label>
                                         <m:Text text=" 8091" textDirection="RTL"></m:Text>
-                                        <!-- </layout:HorizontalLayout> -->
-                                        <!-- <layout:HorizontalLayout > -->
                                     </layout:VerticalLayout >
                                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Distribution Chanel: " design="Bold"></m:Label>
                                         <m:Text text="Direct Sales(10)"></m:Text>
-                                        <!-- </layout:HorizontalLayout > -->
                                     </layout:VerticalLayout >
                                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                                        <!-- <layout:HorizontalLayout > -->
                                         <m:Label text="Division: " design="Bold"></m:Label>
                                         <m:Text text="00"></m:Text>
                                     </layout:VerticalLayout >
-                                    <!-- </layout:HorizontalLayout > -->
-                                    <!-- <layout:HorizontalLayout > -->
-                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                    <!-- <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Sold-To-Party: " design="Bold"></m:Label>
                                         <m:Text text=" "></m:Text>
-                                        <!-- </layout:HorizontalLayout > -->
-                                        <!-- <layout:HorizontalLayout > -->
-                                    </layout:VerticalLayout >
+                                    </layout:VerticalLayout > -->
                                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Order Type: " design="Bold"></m:Label>
                                         <m:Text text="ZB2B"></m:Text>
-                                        <!-- </layout:HorizontalLayout > -->
-
                                     </layout:VerticalLayout>
-                                    <!-- <layout:VerticalLayout class="sapUiSmallMargin">
-                                        <forms:SimpleForm id="SimpleFormDisplayColumn_oneGroup" editable="false" columnsM="2" columnsL="3" columnsXL="4" layout="ColumnLayout" class="sapUiSizeCompact">
-                                            <forms:content>
-                                                <m:Label text="Sales Area" design="Bold" textDirection="LTR"/>
-                                                <m:Text text="" />
-                                                <m:Label text="Sales Organization" design="Bold"/>
-                                                <m:Text text="8091"/>
-                                                <m:Label text="Distribution Chanel" design="Bold"/>
-                                                <m:Text text="Direct Sales(10)"/>
-                                                <m:Label text="Division" design="Bold"/>
-                                                <m:Text text="00"/>
-                                                <m:Label text="Sold-to-party" design="Bold"/>
-                                                <m:Text text=" "/>
-                                                <m:Label text="Order Type" design="Bold"/>
-                                                <m:Text text="ZB2B"/>
-                                            </forms:content>
-                                        </forms:SimpleForm>
-                                    </layout:VerticalLayout> -->
-                                    <!-- <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-                                        <m:Title text=""></m:Title>
-                                        <m:Label text="Overall Status" design="Bold"/>
-                                        <m:Text text="Open"></m:Text>
-                                        <m:VBox>
-                                            <m:Label text="Overall Blocking Status" design="Bold"/>
-                                            <m:Text text="Not Blocked"></m:Text>
-                                            <m:Label text="Credit Limit Utilization" design="Bold"/>
-                                            
-                                            <chart:BulletMicroChart size="S" scale="K" targetValue="82" press="press">
-                                                <chart:actual>
-                                                    <chart:BulletMicroChartData value="57.5" color="Good"/>
-                                                </chart:actual>
-                                                <chart:thresholds>
-                                                    <chart:BulletMicroChartData value="0" color="Error"/>
-                                                    <chart:BulletMicroChartData value="41" color="Critical"/>
-                                                </chart:thresholds>
-                                            </chart:BulletMicroChart>
-                                        </m:VBox>
-                                    </layout:VerticalLayout> -->
+                                    
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <m:Label text="Credit Balance:" design="Bold"/>
+                                        <chart:BulletMicroChart size="S" scale="K" targetValue="82" press="press">
+                                            <chart:actual>
+                                                <chart:BulletMicroChartData value="57.5" color="Good"/>
+                                            </chart:actual>
+                                            <chart:thresholds>
+                                                <chart:BulletMicroChartData value="0" color="Error"/>
+                                                <chart:BulletMicroChartData value="41" color="Critical"/>
+                                            </chart:thresholds>
+                                        </chart:BulletMicroChart>
+                                    </layout:VerticalLayout>
+                                    <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                                        <m:Label text="Net Amount:" design="Bold"/>
+                                        <m:Text text=""></m:Text>
+                                    </layout:VerticalLayout>
                                 </m:FlexBox>
                             </headerContent>
 
@@ -172,19 +137,28 @@
                                                         <m:content> -->
                                                 <!-- <layout:HorizontalLayout>
                                                                 <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
-                                                <forms:SimpleForm editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
+                                                <forms:SimpleForm columnsXL="3" columnsL="2" columnsM="2" editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
+                                                    
+                                                    <!-- <m:Label text="Request Delivery Date"/>
+                                                    <m:DatePicker id="idDPHeader" enabled="false" change="onChangeCRDate" width="50%" />
+                                                     <m:Label ></m:Label>
+                                                    <m:CheckBox text="Default Delivery Date" selected="true" select="onDefaultCBDate"></m:CheckBox> -->
+                                                    <m:Label text="Buyer Party"></m:Label>
+                                                    <m:Input id="idBuyerIdInput" value="" editable="true" showValueHelp="true" description="  " valueHelpOnly="true"  valueHelpRequest="onBuyerPartyF4Help"/>
+                                                    <m:Label text="Ship-to-party" />
+                                                    <m:Input id="idShipToInput" value="TBS010002" enabled="false" showValueHelp="true" description="The Brass Music Specialists" valueHelpRequest="onShipToPartyLinkPress"/>
+                                                    <m:Label text="Ship-to-party Address" />
+                                                    <m:Text text="Address XYZ"/>
                                                     <m:Label text="Customer Reference"/>
                                                     <m:Input width="50%"/>
-
-                                                    <m:Label text="Request Delivery Date"/>
-                                                    <m:DatePicker change="onChangeCRDate" width="50%"/>
-                                                    <!-- </layout:VerticalLayout>
-                                                                <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
-                                                    <m:Label text="Ship-to-party" />
-                                                    <!-- <m:VBox > -->
-                                                    <m:Input value="TBS010002" editable="true" showValueHelp="true" description="The Brass Music Specialists"/>
-                                                    <m:Label/>
-                                                    <m:Link text="Select Ship-To-Party" press="onShipToPartyLinkPress"/>
+                                                     <!-- <m:Label text="Request Delivery Date"/>
+                                                    <m:DatePicker id="idDPHeader" enabled="false" change="onChangeCRDate" width="50%" />
+                                                     <m:Label ></m:Label>
+                                                    <m:CheckBox text="Default Delivery Date" selected="true" select="onDefaultCBDate"></m:CheckBox> -->
+                                                    
+                                                    <m:Label text="Remarks" />
+                                                    <m:TextArea ></m:TextArea>
+                                                    <!-- <m:Link text="Select Ship-To-Party" press="onShipToPartyLinkPress"/> -->
                                                     <!-- </m:VBox> -->
                                                     <!-- </layout:VerticalLayout>
                                                             </layout:HorizontalLayout>
@@ -237,30 +211,30 @@
                                         </ObjectPageSubSection>
                                     </subSections>
                                 </ObjectPageSection> -->
-                                <ObjectPageSection titleUppercase="false" showTitle="false" title="Sales">
+                                <!-- <ObjectPageSection titleUppercase="false" showTitle="false" title="Sales">
                                     <subSections>
                                         <ObjectPageSubSection title="Sales" titleUppercase="false" class="customMargin">
                                             <blocks>
                                                 <forms:SimpleForm editable="false" title="Sales" layout="ColumnLayout" class="sapUiSizeCompact">
                                                     <m:Label text="Total Weight"/>
                                                     <m:ObjectNumber number="31" unit="KG" />
-                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    
                                                     <m:Label text="Net Value"/>
                                                     <m:Text text=""/>
-                                                    <!-- <m:Input valueHelpOnly="true" width="50%" editable="false"/> -->
+                                                    
                                                 </forms:SimpleForm>
                                             </blocks>
                                         </ObjectPageSubSection>
                                     </subSections>
-                                </ObjectPageSection>
+                                </ObjectPageSection> -->
                                 <ObjectPageSection titleUppercase="false" showTitle="false">
                                     <subSections>
                                         <ObjectPageSubSection title="Items" titleUppercase="false" class="customMargin">
-                                            <m:Table id="idTableItems" headerText="Sales Order Items" mode="MultiSelect" items="{itemModel>/items}">
+                                            <m:Table id="idTableItems" headerText="My Order Items" mode="MultiSelect" items="{itemModel>/items}">
                                                 <m:headerToolbar>
                                                     <m:OverflowToolbar>
                                                         <m:content>
-                                                            <m:Title text="Sales Order Items" level="H2"/>
+                                                            <m:Title text="My Order Items" level="H2"/>
                                                             <m:ToolbarSpacer />
                                                             <m:Button icon="sap-icon://add" press="addItem" />
                                                             <m:Button icon="sap-icon://delete" press="deleteItem"/>
@@ -278,7 +252,7 @@
                                                             <m:Text text="Material" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" width="20rem">
                                                         <m:header>
                                                             <m:Text text="Material Description" />
                                                         </m:header>
@@ -296,34 +270,37 @@
                                                             <m:Text text="Sales Unit"/>
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%" hAlign="Center">
+                                                    <!-- <m:Column minScreenWidth="Tablet" demandPopin="true" width="15%" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Requested Delivery Date" />
                                                         </m:header>
-                                                    </m:Column>
+                                                    </m:Column> -->
 
                                                     <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Net Value" />
                                                         </m:header>
                                                     </m:Column>
-                                                    <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                                                    <!-- <m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                                         <m:header>
                                                             <m:Text text="Availability Status" />
                                                         </m:header>
-                                                    </m:Column>
+                                                    </m:Column> -->
                                                 </m:columns>
                                                 <m:ColumnListItem>
                                                     <m:Text text="{itemModel>item}" />
-                                                    <m:Input value="{itemModel>material}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onValueHelpRequest" showSuggestion="false">
+                                                    <m:Input id="idMatF4Input" value="{itemModel>material}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onValueHelpRequest" showSuggestion="true" suggestionItems="{itemModel>/material}">
+                                                        <m:suggestionItems>
+                                                            <core:ListItem text="{itemModel>mat}" additionalText="{itemModel>description}" />
+                                                        </m:suggestionItems>
                                                     </m:Input>
-                                                    <m:Text text="{itemModel>description}" wrapping="true"/>
+                                                    <m:Text id="idMatDscTxt" text="{itemModel>description}" wrapping="true"/>
                                                     <m:Input value="{itemModel>quantity}" width="90%"/>
                                                     <m:Text text="{itemModel>uom}"/>
                                                     <!-- <m:Input value="" width="20%" showValueHelp="true"/> -->
-                                                    <m:DatePicker change="onSelectDate"></m:DatePicker>
+                                                    <!-- <m:DatePicker id="idDPItem" change="onSelectDate"></m:DatePicker> -->
                                                     <m:Text text="{itemModel>netValue}" />
-                                                    <m:FlexBox class="sapUiSmallMarginBegin" alignItems="Center" justifyContent="Center">
+                                                    <!-- <m:FlexBox class="sapUiSmallMarginBegin" alignItems="Center" justifyContent="Center">
                                                         <si:StatusIndicator value="{itemModel>status}" size="Medium" showLabel="false" labelPosition="Right">
                                                             <si:ShapeGroup>
                                                                 <si:LibraryShape shapeId="cart" fillingType="Linear" />
@@ -334,7 +311,7 @@
                                                                 <si:PropertyThreshold fillColor="Good" toValue="100"/>
                                                             </si:propertyThresholds>
                                                         </si:StatusIndicator>
-                                                    </m:FlexBox>
+                                                    </m:FlexBox> -->
                                                     <!-- <m:Text text="{itemModel>plant}" /> -->
                                                 </m:ColumnListItem>
                                             </m:Table>

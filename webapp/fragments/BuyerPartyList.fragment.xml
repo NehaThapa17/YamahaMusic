@@ -1,0 +1,8 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+     <SelectDialog id="selectDialogSH" title="Buyer Party" items="" search=".onValueHelpSearchSH" confirm=".onValueHelpCloseSH" cancel=".onValueHelpCloseSH"> 
+     <StandardListItem title="TBS010002" description="The Brass Music Specialists" />
+            
+	</SelectDialog>
+</core:FragmentDefinition>
