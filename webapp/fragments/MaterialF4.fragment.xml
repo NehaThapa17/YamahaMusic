@@ -9,7 +9,7 @@
         <ColumnListItem vAlign="Middle">
             <cells>
                 <ObjectIdentifier title="{itemModel>mat}" text="{itemModel>description}" />
-                 <Text text="{itemModel>sloc}" />
+                  <!-- <Text text="{itemModel>sloc}" />-->
 				<!--<Text text="{Width} x {Depth} x {Height} {DimUnit}" /> <ObjectNumber number="{WeightMeasure}" unit="{WeightUnit}" state="{
 						path: 'WeightMeasure',
 						formatter: 'sap.m.sample.TableSelectDialog.Formatter.weightState'
@@ -34,14 +34,14 @@
                     <Text text="Material" />
                 </header>
             </Column>
-            <Column width="12em">
+            <!--  <Column width="12em">
                 <header>
                     <Text text="Storage Location" />
                 </header>
-            </Column>
+            </Column>-->
             <Column minScreenWidth="Tablet" demandPopin="true">
                 <header>
-                    <Text text="Availability Status" />
+                    <Text text="Stock Level" />
                 </header>
             </Column>
             <!-- <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
