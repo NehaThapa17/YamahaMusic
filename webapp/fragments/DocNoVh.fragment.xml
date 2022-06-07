@@ -3,20 +3,20 @@
     xmlns:fb="sap.ui.comp.filterbar"
     xmlns:core="sap.ui.core">
 
-    <ValueHelpDialog title="Buyer Party" ok=".onValueHelpOkPress" cancel=".onValueHelpCancelPress" afterClose=".onValueHelpAfterClose" key="buyerID" descriptionKey="buyerName" supportMultiselect="false">
+    <ValueHelpDialog title="Document No" ok=".onValueHelpOkPress" cancel=".onValueHelpCancelPress" afterClose=".onValueHelpAfterClose" key="docNo" descriptionKey="dsc" supportMultiselect="false">
         <filterBar>
             <fb:FilterBar advancedMode="true" search=".commonFilterBarSearch">
                 <fb:filterGroupItems>
-                    <fb:FilterGroupItem groupName="_subInt" name="buyerID" label="Buyer ID" visibleInFilterBar="true">
+                    <fb:FilterGroupItem groupName="__$INTERNAL$" name="docNo" label="DocumentNo" visibleInFilterBar="true">
                         <fb:control>
-                            <m:Input name="buyerID" />
+                            <m:Input name="docNo" />
                         </fb:control>
                     </fb:FilterGroupItem>
                 </fb:filterGroupItems>
                 <fb:filterGroupItems>
-                    <fb:FilterGroupItem groupName="_subInt" name="buyerName" label="Buyer Name" visibleInFilterBar="true">
+                    <fb:FilterGroupItem groupName="__$INTERNAL$" name="dsc" label="Description" visibleInFilterBar="true">
                         <fb:control>
-                            <m:Input name="buyerName" />
+                            <m:Input name="dsc" />
                         </fb:control>
                     </fb:FilterGroupItem>
                 </fb:filterGroupItems>
