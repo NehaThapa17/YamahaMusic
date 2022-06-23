@@ -15,16 +15,20 @@
 						formatter: 'sap.m.sample.TableSelectDialog.Formatter.weightState'
 					}" /> -->
                 <!-- <FlexBox class="sapUiSmallMarginBegin" alignItems="Center" justifyContent="Center"> -->
-                    <si:StatusIndicator value="{itemModel>value}" size="Medium" showLabel="false" labelPosition="Right">
+                   <!-- <si:StatusIndicator value="{itemModel>value}" size="Medium" showLabel="false" labelPosition="Right">
                         <si:ShapeGroup>
-                            <si:LibraryShape shapeId="cart" fillingType="Linear" />
+                            <si:LibraryShape shapeId="success" fillingType="None" />
                         </si:ShapeGroup>
                         <si:propertyThresholds>
                             <si:PropertyThreshold fillColor="Critical" toValue="60"/>
                             <si:PropertyThreshold fillColor="Error" toValue="30"/>
                             <si:PropertyThreshold fillColor="Good" toValue="100"/>
                         </si:propertyThresholds>
-                    </si:StatusIndicator>
+                    </si:StatusIndicator> -->
+                    <core:Icon tooltip="{ parts: [ {path: 'itemModel>value'}, {path: 'itemModel>transit'} ], formatter: '.formatter.fnDetermineTooltip'}" 
+			src="{ parts: [ {path: 'itemModel>value'}, {path: 'itemModel>transit'} ], formatter: '.formatter.fnDetermineIcon'}" 
+			color="{ parts: [ {path: 'itemModel>value'}, {path: 'itemModel>transit'} ], formatter: '.formatter.fnDetermineColor'}">
+        </core:Icon> 
                 <!-- </FlexBox> -->
             </cells>
         </ColumnListItem>
@@ -39,7 +43,7 @@
                     <Text text="Storage Location" />
                 </header>
             </Column>-->
-            <Column minScreenWidth="Tablet" demandPopin="true">
+            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                 <header>
                     <Text text="Stock Level" />
                 </header>

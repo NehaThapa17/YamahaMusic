@@ -6,15 +6,18 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     'sap/ui/core/Fragment',
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator",
+    "../utils/formatter"
 ],
-    /**
+    /** 
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (UIComponent, History, Controller, JSONModel, Fragment, Filter, FilterOperator) {
+    function (UIComponent, History, Controller, JSONModel, Fragment, Filter, FilterOperator, formatter) {
         "use strict";
 
         return Controller.extend("yamahamusic.so.createso.project.controller.CreateView", {
+            formatter: formatter,
+            
             onInit: function () {
                 // var oModel = new JSONModel(sap.ui.require.toUrl("sap/ui/demo/mock/products.json"));
                 // this.getView().setModel(oModel);
@@ -27,22 +30,31 @@ sap.ui.define([
                             "mat": "AA768",
                             "description": "Material For Test1",
                             "sloc":"LOC1",
-                            "value": "20"
+                            "value": "20",
+                             "transit": true
 
                         },
                         {
                             "mat": "AA564",
                             "description": "Material for Test2",
                             "sloc":"LOC2",
-                            "value": "60"
+                            "value": "60",
+                            "transit": true
 
                         },
                         {
                             "mat": "AA908",
                             "description": "Material for Test3",
                             "sloc":"LOC3",
-                            "value": "80"
-
+                            "value": "0",
+                            "transit": true
+                        },
+                        {
+                            "mat": "AA234",
+                            "description": "Material for Test4",
+                            "sloc":"LOC2",
+                            "value": "0",
+                            "transit": false
                         }
                     ]
                 };
