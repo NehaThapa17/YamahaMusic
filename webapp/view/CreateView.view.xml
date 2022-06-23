@@ -101,7 +101,7 @@
                                         <m:Label text="Order Type: " design="Bold"></m:Label>
                                         <m:Text text="ZB2B"></m:Text>
                                     </layout:VerticalLayout>
-                                    
+
                                     <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
                                         <m:Label text="Credit Balance:" design="Bold"/>
                                         <chart:BulletMicroChart size="S" scale="K" targetValue="82" press="press">
@@ -138,24 +138,40 @@
                                                 <!-- <layout:HorizontalLayout>
                                                                 <layout:VerticalLayout class="sapUiNoMarginTop sapUiNoMarginBottom" width="90%"> -->
                                                 <forms:SimpleForm columnsXL="3" columnsL="2" columnsM="2" editable="true" layout="ColumnLayout" class="sapUiSizeCompact">
-                                                    
+
                                                     <!-- <m:Label text="Request Delivery Date"/>
                                                     <m:DatePicker id="idDPHeader" enabled="false" change="onChangeCRDate" width="50%" />
                                                      <m:Label ></m:Label>
                                                     <m:CheckBox text="Default Delivery Date" selected="true" select="onDefaultCBDate"></m:CheckBox> -->
                                                     <m:Label text="Buyer Party"></m:Label>
-                                                    <m:Input id="idBuyerIdInput" value="" editable="true" showValueHelp="true" description="  " valueHelpOnly="true"  valueHelpRequest="onBuyerPartyF4Help"/>
+                                                    <m:Input id="idBuyerIdInput" value=" " editable="true" showValueHelp="true" description="  " valueHelpRequest="onBuyerPartyF4Help" suggestionItems="{
+                                                                    path: 'itemModel>/soldTP',
+                                                                    templateShareable:false ,
+                                                                    sorter: { path: 'buyerID' }
+                                                                }" showSuggestion="true" suggest=".onSuggest" maxSuggestionWidth="33%">
+                                                        <m:suggestionItems>
+                                                            <core:ListItem text="{bpModel>buyerID}" additionalText="{bpModel>buyerName}" />
+                                                        </m:suggestionItems>
+                                                    </m:Input>
                                                     <m:Label text="Ship-to-party" />
-                                                    <m:Input id="idShipToInput" value="TBS010002" enabled="false" showValueHelp="true" description="The Brass Music Specialists" valueHelpRequest="onShipToPartyLinkPress"/>
+                                                    <m:Input id="idShipToInput" value="TBS010002" enabled="false" showValueHelp="true" description="The Brass Music Specialists" valueHelpRequest="onBuyerPartyF4Help" suggestionItems="{
+                                                                    path: 'itemModel>/soldTP',
+                                                                    templateShareable:false ,
+                                                                    sorter: { path: 'buyerID' }
+                                                                }" showSuggestion="true" suggest=".onSuggest" maxSuggestionWidth="33%">
+                                                        <m:suggestionItems>
+                                                            <core:ListItem text="{bpModel>buyerID}" additionalText="{bpModel>buyerName}" />
+                                                        </m:suggestionItems>
+                                                    </m:Input>
                                                     <m:Label text="Ship-to-party Address" />
                                                     <m:Text text="Address XYZ"/>
                                                     <m:Label text="Customer Reference"/>
                                                     <m:Input width="50%"/>
-                                                     <!-- <m:Label text="Request Delivery Date"/>
+                                                    <!-- <m:Label text="Request Delivery Date"/>
                                                     <m:DatePicker id="idDPHeader" enabled="false" change="onChangeCRDate" width="50%" />
                                                      <m:Label ></m:Label>
                                                     <m:CheckBox text="Default Delivery Date" selected="true" select="onDefaultCBDate"></m:CheckBox> -->
-                                                    
+
                                                     <m:Label text="Remarks" />
                                                     <m:TextArea ></m:TextArea>
                                                     <!-- <m:Link text="Select Ship-To-Party" press="onShipToPartyLinkPress"/> -->

@@ -9,7 +9,7 @@
     <Shell id="shell">
         <App id="app">
             <pages>
-                <Page  showHeader="false">
+                <Page showHeader="false">
                     <!-- title="{i18n>title}" -->
                     <content>
                         <f:DynamicPage id="dynamicPageId" headerExpanded="true">
@@ -40,7 +40,15 @@
                                                             <core:Item key="001124" text="001124"/>
                                                             <core:Item key="001125" text="001125"/>
                                                         </MultiComboBox> -->
-                                                        <Input showValueHelp="true" ></Input>
+                                                        <Input showValueHelp="true" valueHelpRequest="onDocNumVH" suggestionItems="{
+                                                                    path: 'bpModel>/docData',
+                                                                    templateShareable:false ,
+                                                                    sorter: { path: 'docNo' }
+                                                                }" showSuggestion="true" suggest=".onSuggest" maxSuggestionWidth="33%">
+                                                            <suggestionItems>
+                                                                <core:ListItem text="{bpModel>docNo}" additionalText="{bpModel>docNo}" />
+                                                            </suggestionItems>
+                                                        </Input>
                                                     </fb:control>
                                                 </fb:FilterGroupItem>
                                                 <fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="Document Date" partOfCurrentVariant="true" visibleInFilterBar="true">
@@ -72,7 +80,7 @@
                                                     <fb:control>
                                                         <DatePicker change="onChange"/>
                                                     </fb:control>
-                                                </fb:FilterGroupItem>   
+                                                </fb:FilterGroupItem>
                                             </fb:filterGroupItems>
                                         </fb:FilterBar>
                                     </f:content>
@@ -82,14 +90,14 @@
                             <!-- DynamicPage Content -->
                             <f:content>
                                 <Table id="idProductsTable" inset="false">
-                                <headerToolbar>
-                                <OverflowToolbar>
-                                    <Title text="My Orders (3)"/>
-                                    <ToolbarSpacer/>
-                                    <Button text="Create My Order" type="Emphasized" press="onPressCreateSO"/>
-                                    <!-- <Button icon="sap-icon://action-settings"/> -->
-                                </OverflowToolbar>
-                                </headerToolbar>
+                                    <headerToolbar>
+                                        <OverflowToolbar>
+                                            <Title text="My Orders (3)"/>
+                                            <ToolbarSpacer/>
+                                            <Button text="Create My Order" type="Emphasized" press="onPressCreateSO"/>
+                                            <!-- <Button icon="sap-icon://action-settings"/> -->
+                                        </OverflowToolbar>
+                                    </headerToolbar>
 
                                     <columns>
                                         <Column minScreenWidth="Tablet" demandPopin="true">
@@ -107,7 +115,7 @@
                                         <Column minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="Net Value"/>
                                         </Column>
-                                         <Column minScreenWidth="Tablet" demandPopin="true">
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="Order Status"/>
                                         </Column>
                                         <Column minScreenWidth="Tablet" demandPopin="true">
@@ -116,9 +124,9 @@
                                         <Column minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="Created On"/>
                                         </Column>
-                                        
-                                        
-                                       
+
+
+
                                     </columns>
 
                                     <items>
@@ -128,12 +136,12 @@
                                                 <Text text="21.05.2022"/>
                                                 <Text text="Dealer A"/>
                                                 <Text text="PO12345-O10"/>
-                                                
-                                               <Text text="52.66 AUD"/>
+
+                                                <Text text="52.66 AUD"/>
                                                 <Text text="Open"/>
                                                 <Text text="Open"/>
                                                 <Text text="17.05.2022"/>
-                                              
+
                                             </cells>
                                         </ColumnListItem>
                                         <ColumnListItem vAlign="Middle" type="Navigation" press="onTitleClicked">
@@ -142,12 +150,12 @@
                                                 <Text text="21.05.2022"/>
                                                 <Text text="Dealer B"/>
                                                 <Text text="PO12345-O10"/>
-                                                
+
                                                 <Text text="100.96 AUD"/>
                                                 <Text text="Open"/>
                                                 <Text text="Open"/>
                                                 <Text text="17.05.2022"/>
-                                                </cells>
+                                            </cells>
                                         </ColumnListItem>
                                         <ColumnListItem vAlign="Middle" type="Navigation" press="onTitleClicked">
                                             <cells>
@@ -155,7 +163,7 @@
                                                 <Text text="21.05.2022"/>
                                                 <Text text="Dealer C"/>
                                                 <Text text="PO12345-O10"/>
-                                                
+
                                                 <Text text="34.75 AUD"/>
                                                 <Text text="Open"/>
                                                 <Text text="Open"/>
